@@ -1,13 +1,28 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-bgColor text-white
+    }
+    
+    h1 {
+        @apply uppercase font-extrabold text-4.5xl leading-tight
+    }
+
+    p {
+        @apply leading-tight
+    }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+    header {
+        background-image: url('./assets//header/map2.png');
+    }
+
+    .screen-width {
+        @apply w-full max-w-4xl mx-auto
+    }
 }
+
