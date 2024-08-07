@@ -7,10 +7,12 @@ import card0 from "../assets/header/header_card0.png";
 import card1 from "../assets/header/header_card1.png";
 import card2 from "../assets/header/header_card2.png";
 import card3 from "../assets/header/header_card3.png";
+import bdot from "../assets/header/blueDot.svg";
+import odot from "../assets/header/orangeDot.svg";
 
 const Header = () => {
   return (
-    <header className="h-[630px] w-full bg-cover bg-center bg-headerBg flex flex-col">
+    <header className="h-[630px] w-full bg-cover bg-center bg-headerBg flex flex-col relative">
       <Nav />
       <section className="screen-width flex items-start justify-between h-[398px] relative space-x-11">
         <div className="flex flex-col space-y-8 mt-24 w-[488px]">
@@ -66,6 +68,53 @@ const Header = () => {
           />
         </div>
       </section>
+
+      {/* dots */}
+      <img
+        className="animate-pulse w-10 h-10 absolute z-1 top-[173px] left-[217px]"
+        src={bdot}
+        alt="dot"
+      />
+      <img
+        className="animate-pulse w-10 h-10 absolute z-1 top-[272px] left-[360px]"
+        src={odot}
+        alt="dot"
+      />
+      <img
+        className="animate-pulse w-10 h-10 absolute z-1 top-[518px] left-[436px]"
+        src={odot}
+        alt="dot"
+      />
+      <img
+        className="animate-pulse w-10 h-10 absolute z-1 top-[105px] left-[544px]"
+        src={odot}
+        alt="dot"
+      />
+      <img
+        className="animate-pulse w-10 h-10 absolute z-1 top-[430px] left-[688px]"
+        src={bdot}
+        alt="dot"
+      />
+      <img
+        className="animate-pulse w-10 h-10 absolute z-1 top-[232px] left-[709px]"
+        src={odot}
+        alt="dot"
+      />
+      <img
+        className="animate-pulse w-10 h-10 absolute z-1 top-[159px] left-[870px]"
+        src={bdot}
+        alt="dot"
+      />
+      <img
+        className="animate-pulse w-10 h-10 absolute z-1 top-[469px] left-[1000px]"
+        src={odot}
+        alt="dot"
+      />
+      <img
+        className="animate-pulse w-10 h-10 absolute z-1 top-[175px] left-[1084px]"
+        src={odot}
+        alt="dot"
+      />
     </header>
   );
 };

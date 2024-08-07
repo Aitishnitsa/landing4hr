@@ -1,11 +1,11 @@
 import React from "react";
 
-const BorderCard = ({ text }) => {
+const BorderCard = ({ children }) => {
   return (
     <>
-      <div className="w-[211px] h-32 border border-grey1 rounded-xl flex justify-center items-center text-center">
-        {text}
-      </div>
+      <li className="w-[211px] h-32 border border-grey1 rounded-xl flex justify-center items-center text-center">
+        {children}
+      </li>
     </>
   );
 };

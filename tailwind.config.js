@@ -7,6 +7,8 @@ module.exports = {
         sans: ["Raleway", "sans-serif"],
       },
       fontSize: {
+        xxs: "0.688rem",
+        "1.5xl": "1.375rem",
         "4.5xl": "2.625rem",
       },
       colors: {

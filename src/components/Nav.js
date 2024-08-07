@@ -10,7 +10,7 @@ const Nav = () => {
           <img src={logo} alt="logo" />
         </a>
         <nav>
-          <ul className="flex space-x-6 font-semibold text-[11px]">
+          <ul className="flex space-x-6 font-semibold text-xxs">
             <li>
               <a href="#">CASES</a>
             </li>
@@ -27,7 +27,12 @@ const Nav = () => {
         <p className="leading-snug text-xs w-[132px]">
           Request a callback and speak with an expert
         </p>
-        <Button link={"#"} text={"Write to the manager"} />
+        <Button
+          classes={"bg-primary2 px-6 py-3 hover:bg-white hover:text-primary2"}
+          link={"#"}
+        >
+          Write to the manager
+        </Button>
       </div>
     </div>
   );

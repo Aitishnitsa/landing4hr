@@ -1,12 +1,12 @@
 import React from "react";
 
-const Button = ({ link, text }) => {
+const Button = ({ link, classes, children }) => {
   return (
     <a
-      className="bg-primary2 rounded-full px-6 py-3 font-bold text-xs hover:bg-white hover:text-primary2 transition-colors duration-300 ease-in-out"
+      className={`${classes} rounded-full font-bold text-xs text-center transition-colors duration-300 ease-in-out`}
       href={link}
     >
-      {text}
+      {children}
     </a>
   );
 };

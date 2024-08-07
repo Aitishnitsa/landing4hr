@@ -1,28 +1,46 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @layer base {
     body {
-        @apply bg-bgColor text-white
+        @apply bg-bgColor text-white overflow-x-hidden
     }
     
     h1 {
         @apply uppercase font-extrabold text-4.5xl leading-tight
     }
 
+    h2 {
+        @apply uppercase font-bold text-1.5xl
+    }
+
+    h3 {
+        @apply uppercase font-bold text-xxs text-primary2
+    }
+
     p {
         @apply leading-tight
     }
+
+    main {
+        @apply bg-bgColor relative z-0
+    }
 }
+
+@tailwind components;
 
 @layer components {
     header {
-        background-image: url('./assets//header/map2.png');
+        background-image: url('./assets/header/map2.png');
     }
 
     .screen-width {
-        @apply w-full max-w-4xl mx-auto
+        @apply w-full max-w-4xl mx-auto relative z-10
+    }
+
+    .paralax {
+        background-image: url('./assets/paralax.png');
     }
 }
+
+@tailwind utilities;
 
