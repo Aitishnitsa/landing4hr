@@ -17,8 +17,18 @@ module.exports = {
         white: "#FFFFFF",
         primary2: "#FF8A00",
         grey1: "#D9D5D5",
-        black: "#2A2A2A",
+        black: "#000000",
         lightBlack: "#474747",
+      },
+      keyframes: {
+        blink: {
+          "0%": { opacity: 1 },
+          "50%": { opacity: 0 },
+          "100%": { opacity: 1 },
+        },
+      },
+      animation: {
+        blink: "blink 10s ease-in-out infinite both",
       },
     },
   },

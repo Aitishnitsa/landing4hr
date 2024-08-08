@@ -71,47 +71,47 @@ const Header = () => {
 
       {/* dots */}
       <img
-        className="animate-pulse w-10 h-10 absolute z-1 top-[173px] left-[217px]"
+        className="animate-blink w-10 h-10 absolute z-1 top-[173px] left-[217px]"
         src={bdot}
         alt="dot"
       />
       <img
-        className="animate-pulse w-10 h-10 absolute z-1 top-[272px] left-[360px]"
+        className="animate-blink w-10 h-10 absolute z-1 top-[272px] left-[360px]"
         src={odot}
         alt="dot"
       />
       <img
-        className="animate-pulse w-10 h-10 absolute z-1 top-[518px] left-[436px]"
+        className="animate-blink w-10 h-10 absolute z-1 top-[518px] left-[436px]"
         src={odot}
         alt="dot"
       />
       <img
-        className="animate-pulse w-10 h-10 absolute z-1 top-[105px] left-[544px]"
+        className="animate-blink w-10 h-10 absolute z-1 top-[105px] left-[544px]"
         src={odot}
         alt="dot"
       />
       <img
-        className="animate-pulse w-10 h-10 absolute z-1 top-[430px] left-[688px]"
+        className="animate-blink w-10 h-10 absolute z-1 top-[430px] left-[688px]"
         src={bdot}
         alt="dot"
       />
       <img
-        className="animate-pulse w-10 h-10 absolute z-1 top-[232px] left-[709px]"
+        className="animate-blink w-10 h-10 absolute z-1 top-[232px] left-[709px]"
         src={odot}
         alt="dot"
       />
       <img
-        className="animate-pulse w-10 h-10 absolute z-1 top-[159px] left-[870px]"
+        className="animate-blink w-10 h-10 absolute z-1 top-[159px] left-[870px]"
         src={bdot}
         alt="dot"
       />
       <img
-        className="animate-pulse w-10 h-10 absolute z-1 top-[469px] left-[1000px]"
+        className="animate-blink w-10 h-10 absolute z-1 top-[469px] left-[1000px]"
         src={odot}
         alt="dot"
       />
       <img
-        className="animate-pulse w-10 h-10 absolute z-1 top-[175px] left-[1084px]"
+        className="animate-blink w-10 h-10 absolute z-1 top-[175px] left-[1084px]"
         src={odot}
         alt="dot"
       />

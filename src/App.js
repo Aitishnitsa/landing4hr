@@ -1,97 +1,86 @@
 import "./index.css";
+import { useGSAP } from "@gsap/react";
+import gsap from "https://esm.sh/gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import Header from "./components/Header";
-import BorderCard from "./components/BorderCard";
-import Card from "./components/Card";
-import ListItem from "./components/ListItem";
-import hrAgencyImg from "./assets/hr_agency.svg";
-import honeycombs from "./assets/honeycombs.png";
+import RecruitmentSystem from "./sections/RecruitmentSystem";
+import RecruitmentStrategy from "./sections/RecruitmentStrategy";
+import TrandingSystem from "./sections/TrandingSystem";
+import SystemsInfo from "./sections/SystemsInfo";
+import Cases from "./sections/Cases";
+import SelectionOf from "./sections/SelectionOf";
+import Experience from "./sections/Experience";
+import Footer from "./components/Footer";
+import InfiniteLooper from "./components/InfiniteLooper";
+
 import paralax from "./assets/paralax.png";
-import circles from "./assets/circles.svg";
+import neoPost1 from "./assets/neoIT/neoPost1.png";
+import neoPost2 from "./assets/neoIT/neoPost2.png";
+import neoPost3 from "./assets/neoIT/neoPost3.png";
+import post1 from "./assets/socialMarketing/post1.png";
+import post2 from "./assets/socialMarketing/post2.png";
+import post3 from "./assets/socialMarketing/post3.png";
+import post4 from "./assets/socialMarketing/post4.png";
 import sepia from "./assets/sepia.png";
-import SectionHeading from "./components/SectionHeading";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const App = () => {
-  const borderCardText = [
-    "Attracting qualified candidates",
-    "Training of candidates",
-    "Integration into the employer's corporate system",
-    "Formation of corporate culture",
+  const tools1 = [
+    "IT specialists' qualification assessment system;",
+    "Personnel reserve selection system;",
+    "Candidate training system;",
+    "New employee support system.",
   ];
-  const recruitmentAdaptationText = [
-    "A comprehensive HR strategy from HR and business analytics specialists. ",
-    "Solving recruitment and corporate culture problems with the help of SMM tools. ",
-    "Streamlined process of recruitment and adaptation of personnel.",
-    "More than 75,000 best digital specialists in our database.",
-    "Candidates are trained according to the world's best personnel training systems and have practical, highly qualified experience.",
+  const tools2 = [
+    "Creating an HR Funnel;",
+    "Expert assessment of soft skills;",
+    "Analysis of compliance with business requirements;",
+    "Selection of relevant candidates.",
   ];
-  const personnelTrandingText = [
-    {
-      isMain: true,
-      heading: "QUALIFICATION",
-      text: "Candidates are trained according to the best global training systems, such as the outbuilding system, where 90% of the training time is allocated to practice and 10% to theory, as well as similar systems.",
-    },
-    {
-      isMain: false,
-      heading: "TRANDING",
-      text: "Qualified employees are trained according to the corporate system of the business partner, which significantly increases the production efficiency of future employees.",
-    },
-    {
-      isMain: false,
-      heading: "EMPLOYMENT",
-      text: "We hire qualified and well-trained specialists, guaranteeing their high professional suitability and efficiency.",
-    },
-    {
-      isMain: false,
-      heading: "SUPPORT",
-      text: "We support new employees for six months after they join the company, enhancing their skills and professional value.",
-    },
+  const cardsInfo1 = [
+    { section: "info1", number: "2630", text: "Resumes received" },
+    { section: "info1", number: "1106", text: "Resumes selected" },
+    { section: "info1", number: "700+", text: "Interviews conducted" },
+    { section: "info1", number: "372", text: "IT engineers hired" },
   ];
+  const cardsInfo2 = [
+    { section: "info2", number: "5700+", text: "Responces to the vacancy" },
+    { section: "info2", number: "1800+", text: "Relevant candidates" },
+    { section: "info2", number: "650+", text: "Candidates selected" },
+  ];
+
+  useGSAP(() => {
+    const createTimeline = (trigger, target1, target2) => {
+      return gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: trigger,
+            start: "-20% top",
+            end: "40% top",
+            scrub: 2,
+          },
+          defaults: {
+            ease: "power4.out",
+            duration: 1,
+          },
+        })
+        .from(target1, { yPercent: 100, opacity: 0 })
+        .from(target2, { yPercent: 150 }, "<");
+    };
+
+    createTimeline("#it-specialists-section", ".info1", ".neo");
+    createTimeline("#digital-marketers", ".info2", ".post");
+  });
 
   return (
     <>
       <Header />
       <main>
-        <section className="screen-width h-full relative">
-          <img
-            className="absolute -top-24 right-0 m-0 z-0"
-            src={hrAgencyImg}
-            alt="hr agency"
-          />
-          <div className="relative z-10 my-32 flex flex-col space-y-14 ">
-            <h1 className="w-96">RECRUITMENT SYSTEM</h1>
-            <ul className="flex space-x-3">
-              {borderCardText.map((text, index) => (
-                <BorderCard key={index}>{text}</BorderCard>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <section className="screen-width h-full relative flex justify-between items-center">
-          <div className="relative z-10 my-32 flex flex-col space-y-14 ">
-            <h1 className="max-w-md">RECRUITMENT AND ADAPTATION STRATEGY</h1>
-            <ul className="max-w-lg">
-              {recruitmentAdaptationText.map((text, index) => (
-                <ListItem key={index} text={text} />
-              ))}
-            </ul>
-          </div>
-          <img className="max-w-72 h-fit" src={honeycombs} alt="honeycombs" />
-        </section>
-
-        <section className="screen-width h-full relative flex justify-between items-center">
-          <div className="relative z-10 my-32 flex flex-col space-y-14 ">
-            <h1 className="max-w-md">PERSONNEL TRANDING SYSTEM</h1>
-            <div className="relative">
-              <ul className="flex space-x-5 items-center relative z-10">
-                {personnelTrandingText.map((info, index) => (
-                  <Card key={index} info={info} />
-                ))}
-              </ul>
-              <div className="absolute z-0 bottom-1/2 top-1/2 my-auto w-full h-[1px] bg-white"></div>
-            </div>
-          </div>
-        </section>
+        <RecruitmentSystem />
+        <RecruitmentStrategy />
+        <TrandingSystem />
 
         <section className="h-[600px] bg-cover bg-center">
           <img
@@ -101,35 +90,79 @@ const App = () => {
           />
         </section>
 
-        <section className="h-full relative flex justify-between items-center">
-          <div className="screen-width relative z-10 my-32 flex flex-col space-y-5">
-            <h1>Expert evaluation of the effectiveness of training systems.</h1>
-            <h1>Systems for managing the growth of employee qualifications.</h1>
-            <h1>The best systems of training and support of personnel.</h1>
-            <h1>Recruitment and talent identification systems.</h1>
-            <h1>
-              Development of mechanisms for effective systematic management of
-              business process performance.
-            </h1>
-            <h1>
-              Systems for planning the development and retraining of the
-              company's human resources.
-            </h1>
+        <SystemsInfo />
+        <Cases />
+        <SelectionOf
+          title={"Selection of IT specialists"}
+          undertitle={"Objective: Select and train promising IT engineers"}
+          tools={tools1}
+          cardsInfo={cardsInfo1}
+          id={"it-specialists-section"}
+        >
+          <div className="animate-blink">
+            <span className="orange-ellipse top-72 flex justify-center"></span>
           </div>
-          <img
-            className="absolute top-1/2 bottom-1/2 my-auto right-0"
-            src={circles}
-            alt="circles"
-          />
+          <div className="relative z-20 h-96 w-full">
+            <div className="absolute -top-48 left-48 -z-10 rotate-[22deg] grid grid-rows-4 grid-cols-3 gap-2">
+              <img
+                className="neo col-start-1 row-start-2 row-end-4 w-60"
+                src={neoPost1}
+                alt="post"
+              />
+              <img
+                className="neo col-start-2 row-start-1 row-end-3 w-60"
+                src={neoPost2}
+                alt="post"
+              />
+              <img
+                className="neo col-start-3 row-start-2 row-end-4 w-60"
+                src={neoPost3}
+                alt="post"
+              />
+            </div>
+          </div>
+        </SelectionOf>
+
+        <SelectionOf
+          title={"Selection of Digital Marketers"}
+          undertitle={"Objective: Select and train promising IT engineers"}
+          tools={tools2}
+          cardsInfo={cardsInfo2}
+          id={"digital-marketers"}
+        >
+          <div className="animate-blink">
+            <span className="orange-ellipse animate-blink bottom-40 right-72"></span>
+            <span className="white-ellipse animate-blink bottom-24 left-96"></span>
+          </div>
+          <div className="h-72 w-full relative -top-32">
+            <div className="flex space-x-2 justify-center">
+              <img
+                className="post translate-y-16 h-96"
+                src={post1}
+                alt="post"
+              />
+              <img className="post translate-y-8 h-96" src={post2} alt="post" />
+              <img className="post translate-y-0 h-96" src={post3} alt="post" />
+              <img
+                className="post translate-y-16 h-96"
+                src={post4}
+                alt="post"
+              />
+            </div>
+          </div>
+        </SelectionOf>
+
+        <Experience />
+
+        <section className="mt-[200px] mb-36">
+          <h3 className="screen-width mb-5">CLIENTS</h3>
+          <div className="flex flex-col space-y-14">
+            <InfiniteLooper speed="20" direction="left"></InfiniteLooper>
+            <InfiniteLooper speed="20" direction="right"></InfiniteLooper>
+          </div>
         </section>
 
-        <section className="h-full relative flex justify-between items-center">
-          <div className="screen-width relative z-10 my-32 flex flex-col space-y-5">
-            <SectionHeading heading3={"SMM"} heading1={"CASES"}>
-              <p>Business positioning system in social networks.</p>
-            </SectionHeading>
-          </div>
-        </section>
+        <Footer />
 
         <img
           className="fixed -z-10 top-1/2 bottom-1/2 my-auto h-full w-full object-cover"

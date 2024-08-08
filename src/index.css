@@ -40,6 +40,48 @@
     .paralax {
         background-image: url('./assets/paralax.png');
     }
+
+    .white-ellipse {
+        position: absolute;
+        width: 257px;
+        height: 257px;
+        z-index: -20;
+    
+        background: linear-gradient(176.14deg, #FFFFFF 23.48%, #8FC1FF 96.2%);
+        filter: blur(122px);
+    }
+
+    .orange-ellipse {
+        position: absolute;
+        width: 343px;
+        height: 343px;
+        z-index: -20;
+    
+        background: #FF8A00;
+        filter: blur(111px);
+    }
+
+    /* LOOPER */
+    @keyframes slideAnim {
+        from {
+            transform: translateX(0%);
+        }
+
+        to {
+            transform: translateX(-100%);
+        }
+    }
+
+    .looper__innerList[data-animate="true"] .looper__listInstance {
+        animation: slideAnim 20s linear infinite;
+    }
+
+    .looper__listInstance {
+        display: flex;
+        width: max-content;
+
+        animation: none;
+    }
 }
 
 @tailwind utilities;

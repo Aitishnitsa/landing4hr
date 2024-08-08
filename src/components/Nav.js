@@ -23,7 +23,7 @@ const Nav = () => {
           </ul>
         </nav>
       </div>
-      <div className="flex items-center space-x-5">
+      <div className="h-fit flex items-center space-x-5">
         <p className="leading-snug text-xs w-[132px]">
           Request a callback and speak with an expert
         </p>
