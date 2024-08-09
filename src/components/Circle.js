@@ -6,7 +6,7 @@ const Circle = ({ width, text }) => {
     <div className={`relative h-fit ${width} flex justify-center items-center`}>
       <img className={`${width} h-fit`} src={circle} alt="circle" />
       <div className="absolute text-left">
-        <p className="uppercase text-primary2 lining-nums font-semibold text-xxs max-w-32">
+        <p className="uppercase text-primary2 lining-nums font-semibold text-xxs max-w-24 md:max-w-32">
           {text}
         </p>
       </div>

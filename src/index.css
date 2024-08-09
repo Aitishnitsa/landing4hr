@@ -6,11 +6,11 @@
     }
     
     h1 {
-        @apply uppercase font-extrabold text-4.5xl leading-tight
+        @apply uppercase font-extrabold text-2xl md:text-4.5xl leading-tight
     }
 
     h2 {
-        @apply uppercase font-bold text-1.5xl
+        @apply uppercase font-bold  text-lg md:text-1.5xl
     }
 
     h3 {
@@ -34,7 +34,7 @@
     }
 
     .screen-width {
-        @apply w-full max-w-4xl mx-auto relative z-10
+        @apply w-full max-w-[280px] sm:max-w-2xl md:max-w-4xl mx-auto relative z-10
     }
 
     .paralax {
@@ -59,6 +59,16 @@
     
         background: #FF8A00;
         filter: blur(111px);
+    }
+
+    .blue-ellipse {        
+        position: absolute;
+        width: 231px;
+        height: 231px;
+        z-index: -20;
+    
+        background: #8FC1FF;
+        filter: blur(100px);
     }
 
     /* LOOPER */

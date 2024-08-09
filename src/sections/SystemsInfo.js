@@ -17,35 +17,39 @@ const SystemsInfo = () => {
   ];
 
   useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#systems-info",
-        start: "-50% top",
-        end: "75% top",
-        scrub: true,
-      },
-      defaults: {
-        ease: "power4.inOut",
-        duration: 3,
-      },
-    });
+    const textArray = gsap.utils.toArray(".information");
 
-    tl.to(".information", { opacity: 1, stagger: 0.5 }).to(
-      ".information",
-      {
-        opacity: 0.1,
-        stagger: 0.5,
-      },
-      "-=.5"
-    );
+    textArray.forEach((element) => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: element,
+          start: "-300% top",
+          end: "center top",
+          scrub: true,
+        },
+        defaults: {
+          ease: "power4.inOut",
+          duration: 3,
+        },
+      });
+
+      tl.to(element, { opacity: 1, stagger: 0.5 }).to(
+        element,
+        {
+          opacity: 0.1,
+          stagger: 0.5,
+        },
+        "-=.5"
+      );
+    });
   });
 
   return (
     <section
       id="systems-info"
-      className="h-full relative flex justify-between items-center my-[200px]"
+      className="h-full relative flex justify-between items-center my-20 md:my-[200px]"
     >
-      <div className="screen-width relative z-10 flex flex-col space-y-5">
+      <div className="screen-width relative z-10 flex flex-col space-y-3 md:space-y-5">
         {text.map((item, index) => (
           <h1 className="information opacity-10" key={index}>
             {item}

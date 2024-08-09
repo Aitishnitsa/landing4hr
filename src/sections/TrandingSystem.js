@@ -26,16 +26,16 @@ const TrandingSystem = () => {
   ];
 
   return (
-    <section className="screen-width h-full relative flex justify-between items-center my-[200px]">
-      <div className="relative z-10 flex flex-col space-y-14 ">
-        <h1 className="max-w-md">PERSONNEL TRANDING SYSTEM</h1>
+    <section className="screen-width h-full relative flex justify-between items-center my-20 md:my-[200px]">
+      <div className="relative z-10 flex flex-col space-y-10 md:space-y-14 ">
+        <h1 className="max-w-72 md:max-w-md">PERSONNEL TRANDING SYSTEM</h1>
         <div className="relative">
-          <ul className="flex space-x-5 items-center relative z-10">
+          <ul className="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-5 items-center relative z-10">
             {personnelTrandingText.map((info, index) => (
               <Card key={index} info={info} />
             ))}
           </ul>
-          <div className="absolute z-0 bottom-1/2 top-1/2 my-auto w-full h-[1px] bg-white"></div>
+          <div className="hidden md:block absolute z-0 bottom-1/2 top-1/2 my-auto w-full h-[1px] bg-white"></div>
         </div>
       </div>
     </section>

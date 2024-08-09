@@ -12,8 +12,8 @@ const RecruitmentStrategy = () => {
   ];
 
   return (
-    <section className="screen-width h-full relative flex justify-between items-center my-[200px]">
-      <div className="relative z-10 flex flex-col space-y-14 ">
+    <section className="screen-width h-full relative flex flex-col md:flex-row justify-between items-center my-20 md:my-[200px]">
+      <div className="relative z-10 flex flex-col space-y-10 md:space-y-14">
         <h1 className="max-w-md">RECRUITMENT AND ADAPTATION STRATEGY</h1>
         <ul className="max-w-lg flex flex-col space-y-3">
           {recruitmentAdaptationText.map((text, index) => (
@@ -21,7 +21,14 @@ const RecruitmentStrategy = () => {
           ))}
         </ul>
       </div>
-      <img className="max-w-72 h-fit" src={honeycombs} alt="honeycombs" />
+      <img
+        className="max-w-72 h-fit mt-10 md:mt-0 relative z-20"
+        src={honeycombs}
+        alt="honeycombs"
+      />
+      <div className="animate-blink md:hidden">
+        <span className="white-ellipse animate-blink top-80 left-60"></span>
+      </div>
     </section>
   );
 };
