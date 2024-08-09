@@ -24,7 +24,6 @@ const Cases = () => {
           start: "top 70%",
           end: "bottom 50%",
           scrub: 2,
-          // markers: true,
         },
         defaults: {
           ease: "power4.out",
