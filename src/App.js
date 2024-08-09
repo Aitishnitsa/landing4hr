@@ -63,7 +63,6 @@ const App = () => {
             start: start,
             end: end,
             scrub: 2,
-            markers: true,
           },
           defaults: {
             ease: "power4.out",
