@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/landing4hr/static/css/main.2edb3676.css",
-    "main.js": "/landing4hr/static/js/main.3b4886b2.js",
+    "main.js": "/landing4hr/static/js/main.310f7d75.js",
     "static/js/453.a136148c.chunk.js": "/landing4hr/static/js/453.a136148c.chunk.js",
     "static/media/sepia.png": "/landing4hr/static/media/sepia.fda1409ed958bda04fc8.png",
     "static/media/paralax.png": "/landing4hr/static/media/paralax.96c99946c58cb4e3b556.png",
@@ -52,11 +52,11 @@
     "static/media/burger_menu.svg": "/landing4hr/static/media/burger_menu.a9c00212f8e8f749c42331e1fec7ef96.svg",
     "static/media/circle.svg": "/landing4hr/static/media/circle.f6ee0a77278cce47c3670ea842289619.svg",
     "main.2edb3676.css.map": "/landing4hr/static/css/main.2edb3676.css.map",
-    "main.3b4886b2.js.map": "/landing4hr/static/js/main.3b4886b2.js.map",
+    "main.310f7d75.js.map": "/landing4hr/static/js/main.310f7d75.js.map",
     "453.a136148c.chunk.js.map": "/landing4hr/static/js/453.a136148c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2edb3676.css",
-    "static/js/main.3b4886b2.js"
+    "static/js/main.310f7d75.js"
   ]
 }
