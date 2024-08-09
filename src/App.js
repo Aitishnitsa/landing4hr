@@ -53,14 +53,17 @@ const App = () => {
   ];
 
   useGSAP(() => {
-    const createTimeline = (trigger, target1, target2) => {
+    let mm = gsap.matchMedia();
+
+    const createTimeline = (trigger, start, end, target1, target2) => {
       return gsap
         .timeline({
           scrollTrigger: {
             trigger: trigger,
-            start: "-20% top",
-            end: "40% top",
+            start: start,
+            end: end,
             scrub: 2,
+            markers: true,
           },
           defaults: {
             ease: "power4.out",
@@ -71,8 +74,39 @@ const App = () => {
         .from(target2, { yPercent: 150 }, "<");
     };
 
-    createTimeline("#it-specialists-section", ".info1", ".neo");
-    createTimeline("#digital-marketers", ".info2", ".post");
+    mm.add("(min-width: 769px)", () => {
+      createTimeline(
+        "#it-specialists-section",
+        "-20% top",
+        "40% top",
+        ".info1",
+        ".neo"
+      );
+      createTimeline(
+        "#digital-marketers",
+        "-20% top",
+        "40% top",
+        ".info2",
+        ".post"
+      );
+    });
+
+    mm.add("(max-width: 768px)", () => {
+      createTimeline(
+        "#it-specialists-section",
+        "10% top",
+        "40% top",
+        ".info1",
+        ".neo"
+      );
+      createTimeline(
+        "#digital-marketers",
+        "10% top",
+        "40% top",
+        ".info2",
+        ".post"
+      );
+    });
   });
 
   return (

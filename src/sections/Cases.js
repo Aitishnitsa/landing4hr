@@ -17,7 +17,7 @@ const Cases = () => {
   useGSAP(() => {
     let mm = gsap.matchMedia();
 
-    mm.add("(min-width: 768px)", () => {
+    mm.add("(min-width: 769px)", () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: "#cases",

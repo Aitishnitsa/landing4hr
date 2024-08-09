@@ -18,29 +18,58 @@ const SystemsInfo = () => {
 
   useGSAP(() => {
     const textArray = gsap.utils.toArray(".information");
+    let mm = gsap.matchMedia();
 
-    textArray.forEach((element) => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: element,
-          start: "-300% top",
-          end: "center top",
-          scrub: true,
-        },
-        defaults: {
-          ease: "power4.inOut",
-          duration: 3,
-        },
+    mm.add("(min-width: 768px)", () => {
+      textArray.forEach((element) => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: element,
+            start: "-300% top",
+            end: "center top",
+            scrub: true,
+          },
+          defaults: {
+            ease: "power4.inOut",
+            duration: 3,
+          },
+        });
+
+        tl.to(element, { opacity: 1, stagger: 0.5 }).to(
+          element,
+          {
+            opacity: 0.1,
+            stagger: 0.5,
+          },
+          "-=.5"
+        );
       });
+    });
 
-      tl.to(element, { opacity: 1, stagger: 0.5 }).to(
-        element,
-        {
-          opacity: 0.1,
-          stagger: 0.5,
-        },
-        "-=.5"
-      );
+    mm.add("(max-width: 767px)", () => {
+      textArray.forEach((element) => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: element,
+            start: "center bottom",
+            end: "center top",
+            scrub: true,
+          },
+          defaults: {
+            ease: "power4.inOut",
+            duration: 3,
+          },
+        });
+
+        tl.to(element, { opacity: 1, stagger: 0.5 }).to(
+          element,
+          {
+            opacity: 0.1,
+            stagger: 0.5,
+          },
+          "-=.5"
+        );
+      });
     });
   });
 
