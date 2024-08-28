@@ -1,4 +1,5 @@
 import "./index.css";
+import { ReactLenis } from "lenis/react";
 import { useGSAP } from "@gsap/react";
 import gsap from "https://esm.sh/gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -109,7 +110,7 @@ const App = () => {
   });
 
   return (
-    <>
+    <ReactLenis root>
       <Header />
       <main className="overflow-hidden">
         <RecruitmentSystem />
@@ -204,7 +205,7 @@ const App = () => {
         />
       </main>
       <Footer />
-    </>
+    </ReactLenis>
   );
 };
 

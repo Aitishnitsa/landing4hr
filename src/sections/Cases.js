@@ -15,32 +15,28 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const Cases = () => {
   useGSAP(() => {
-    let mm = gsap.matchMedia();
-
-    mm.add("(min-width: 769px)", () => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: "#cases",
-          start: "top 70%",
-          end: "bottom 50%",
-          scrub: 2,
-        },
-        defaults: {
-          ease: "power4.out",
-          duration: 1,
-        },
-      });
-
-      tl.from(".phone1", { yPercent: 150, opacity: 0, stagger: 0.5 }).from(
-        ".phone2",
-        {
-          yPercent: 150,
-          opacity: 0,
-          stagger: 0.5,
-        },
-        "-=1"
-      );
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#cases",
+        start: "top 70%",
+        end: "bottom 50%",
+        scrub: 2,
+      },
+      defaults: {
+        ease: "power4.out",
+        duration: 1,
+      },
     });
+
+    tl.from(".phone1", { yPercent: 150, opacity: 0, stagger: 0.5 }).from(
+      ".phone2",
+      {
+        yPercent: 150,
+        opacity: 0,
+        stagger: 0.5,
+      },
+      "-=1"
+    );
   });
 
   return (

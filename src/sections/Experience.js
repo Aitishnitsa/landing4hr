@@ -5,7 +5,10 @@ import Circle from "../components/Circle";
 
 const Experience = () => {
   return (
-    <section className="h-full relative flex justify-between items-center my-20 md:my-[200px]">
+    <section
+      id="about"
+      className="h-full relative flex justify-between items-center my-20 md:my-[200px]"
+    >
       <div className="screen-width relative z-10 flex flex-col space-y-10 md:space-y-14 w-full h-[1004px] md:h-[650px]">
         <h3 className="max-w-28">Time-tested experience</h3>
         <div>
