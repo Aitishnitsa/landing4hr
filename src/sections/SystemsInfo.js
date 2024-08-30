@@ -26,7 +26,6 @@ const SystemsInfo = () => {
           start: "bottom bottom",
           end: "bottom top",
           scrub: true,
-          markers: true,
         },
         defaults: {
           ease: "power4.inOut",
