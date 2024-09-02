@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ReactLenis, useLenis } from "lenis/react";
+import { useLenis } from "lenis/react";
 import logo from "../assets/logo.svg";
 // import burgerMenu from "../assets/header/burger_menu.svg";
 import Button from "./Button";
@@ -11,6 +11,9 @@ const Nav = () => {
   const [showToggleBtn, setShowToggleBtn] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const screenSize = useScreenSize();
+  const lenis = useLenis(({ scroll }) => {
+    // called every scroll
+  });
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -21,11 +24,12 @@ const Nav = () => {
       setShowToggleBtn(true);
     } else {
       setShowToggleBtn(false);
-      setShowMenu(true);
+      setShowMenu(false);
     }
   }, [screenSize.width]);
 
   useGSAP(() => {
+    // Links
     const links = gsap.utils.toArray("nav ul li");
 
     links.forEach((link) => {
@@ -57,9 +61,35 @@ const Nav = () => {
     });
   });
 
-  const lenis = useLenis(({ scroll }) => {
-    // called every scroll
-  });
+  useGSAP(() => {
+    const menuTl = gsap.timeline({
+      defaults: { duration: 0.3, ease: "power4.inOut" },
+    });
+
+    if (showMenu) {
+      menuTl.fromTo(
+        "nav ul li",
+        { opacity: 0, xPercent: 100 },
+        {
+          opacity: 1,
+          xPercent: 0,
+          stagger: 0.1,
+        }
+      );
+    } else {
+      menuTl.to("nav ul li", { opacity: 0, xPercent: 100 });
+    }
+
+    return () => {
+      document.querySelector("menu-toggle")?.addEventListener("click", () => {
+        if (!showMenu) {
+          menuTl.play();
+        } else {
+          menuTl.reverse();
+        }
+      });
+    };
+  }, [showMenu]);
 
   useEffect(() => {
     const handleAnchorClick = (event) => {
@@ -95,19 +125,14 @@ const Nav = () => {
         {showToggleBtn ? (
           // fixed overflow-y-hidden
           <div
-            className={`${
-              showMenu && "h-screen"
-            } w-full flex flex-col items-stretch`}
+            className={"relative w-full flex flex-col items-stretch"}
             onClick={toggleMenu}
           >
             <div className="w-full flex justify-between">
               <a href="#">
                 <img src={logo} alt="logo" />
               </a>
-              <button
-                className={!showToggleBtn ? "hidden" : "block"}
-                onClick={toggleMenu}
-              >
+              <button className={"menu-toggle"}>
                 {!showMenu ? (
                   <svg
                     fill="none"
@@ -152,27 +177,17 @@ const Nav = () => {
               </button>
             </div>
             <div
-              className={`${
-                !showMenu
-                  ? "hidden"
-                  : "flex flex-col justify-center items-center relative z-50 w-full h-full"
-              }`}
+              className={`${"absolute z-50 top-16 left-1/2 -translate-x-1/2"}`}
             >
-              <nav className="h-1/3 flex items-center justify-center">
-                <ul className="flex flex-col space-y-6 font-semibold text-base">
+              <nav className="h-1/3 w-full">
+                <ul className="flex space-x-6 font-semibold text-base">
                   <li>
                     <a
                       href="#cases"
                       className="relative overflow-hidden flex justify-between"
                       onClick={toggleMenu}
                     >
-                      <div className="overflow-hidden h-3 flex items-center justify-center flex-col">
-                        <p className="primary w-full translate-y-1/2">CASES</p>
-                        <p className="secondary w-full translate-y-2/3">
-                          CASES
-                        </p>
-                      </div>
-                      <div className="line absolute -bottom-px origin-center w-full scale-0 border border-b-px border-white"></div>
+                      CASES
                     </a>
                   </li>
                   <li>
@@ -181,13 +196,7 @@ const Nav = () => {
                       className="relative overflow-hidden flex justify-between"
                       onClick={toggleMenu}
                     >
-                      <div className="overflow-hidden h-3 flex items-center justify-center flex-col">
-                        <p className="primary w-full translate-y-1/2">TOOLS</p>
-                        <p className="secondary w-full translate-y-2/3">
-                          TOOLS
-                        </p>
-                      </div>
-                      <div className="line absolute -bottom-px origin-center w-full scale-0 border border-b-px border-white"></div>
+                      TOOLS
                     </a>
                   </li>
                   <li>
@@ -196,25 +205,11 @@ const Nav = () => {
                       className="relative overflow-hidden flex justify-between"
                       onClick={toggleMenu}
                     >
-                      <p>ABOUT</p>
-                      <div className="line absolute -bottom-px origin-center w-full scale-0 border border-b-px border-white"></div>
+                      ABOUT
                     </a>
                   </li>
                 </ul>
               </nav>
-              <div className="h-1/3 flex flex-col-reverse  items-center">
-                <p className="leading-snug text-xs w-44 text-center">
-                  Request a callback and speak with an expert
-                </p>
-                <Button
-                  classes={
-                    "bg-primary2 px-3 md:px-6 py-3 hover:bg-white hover:text-primary2 uppercase mb-3 md:mb-0"
-                  }
-                  link={"#"}
-                >
-                  Write to the manager
-                </Button>
-              </div>
             </div>
           </div>
         ) : (
