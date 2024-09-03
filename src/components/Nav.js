@@ -62,22 +62,22 @@ const Nav = () => {
   });
 
   useGSAP(() => {
+    const menu = document.querySelector(".mobile-menu");
     const menuTl = gsap.timeline({
       defaults: { duration: 0.3, ease: "power4.inOut" },
     });
 
-    if (showMenu) {
+    if (menu && showMenu) {
       menuTl.fromTo(
-        "nav ul li",
+        menu,
         { opacity: 0, xPercent: 100 },
         {
           opacity: 1,
           xPercent: 0,
-          stagger: 0.1,
         }
       );
     } else {
-      menuTl.to("nav ul li", { opacity: 0, xPercent: 100 });
+      menuTl.to(menu, { opacity: 0, xPercent: 100 });
     }
 
     return () => {
@@ -177,7 +177,8 @@ const Nav = () => {
               </button>
             </div>
             <div
-              className={`${"absolute z-50 top-16 left-1/2 -translate-x-1/2"}`}
+              style={{ opacity: 0 }}
+              className="mobile-menu absolute z-50 top-16 left-1/2 -translate-x-1/2"
             >
               <nav className="h-1/3 w-full">
                 <ul className="flex space-x-6 font-semibold text-base">
