@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useLenis } from "lenis/react";
 import logo from "../assets/logo.svg";
 // import burgerMenu from "../assets/header/burger_menu.svg";
@@ -10,6 +10,7 @@ import gsap from "https://esm.sh/gsap";
 const Nav = () => {
   const [showToggleBtn, setShowToggleBtn] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+  const menuRef = useRef(null);
   const screenSize = useScreenSize();
   const lenis = useLenis(({ scroll }) => {
     // called every scroll
@@ -62,12 +63,14 @@ const Nav = () => {
   });
 
   useGSAP(() => {
-    const menu = document.querySelector(".mobile-menu");
+    const menu = menuRef.current;
+    if (!menu) return;
+
     const menuTl = gsap.timeline({
       defaults: { duration: 0.3, ease: "power4.inOut" },
     });
 
-    if (menu && showMenu) {
+    if (showMenu) {
       menuTl.fromTo(
         menu,
         { opacity: 0, xPercent: 100 },
@@ -81,13 +84,18 @@ const Nav = () => {
     }
 
     return () => {
-      document.querySelector("menu-toggle")?.addEventListener("click", () => {
+      const toggleButton = document.querySelector(".menu-toggle");
+      toggleButton?.addEventListener("click", () => {
         if (!showMenu) {
           menuTl.play();
         } else {
           menuTl.reverse();
         }
       });
+
+      return () => {
+        toggleButton?.removeEventListener("click", toggleMenu);
+      };
     };
   }, [showMenu]);
 
@@ -123,60 +131,67 @@ const Nav = () => {
     <>
       <div className="flex justify-between py-2 md:py-5 screen-width">
         {showToggleBtn ? (
-          // fixed overflow-y-hidden
           <div
             className={"relative w-full flex flex-col items-stretch"}
             onClick={toggleMenu}
           >
-            <div className="w-full flex justify-between">
+            <div className="w-full flex justify-between items-center">
               <a href="#">
                 <img src={logo} alt="logo" />
               </a>
-              <button className={"menu-toggle"}>
-                {!showMenu ? (
-                  <svg
-                    fill="none"
-                    height="28"
-                    viewBox="0 0 28 28"
-                    width="28"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M3 7C3 6.44771 3.44772 6 4 6H24C24.5523 6 25 6.44771 25 7C25 7.55229 24.5523 8 24 8H4C3.44772 8 3 7.55229 3 7Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M3 14C3 13.4477 3.44772 13 4 13H24C24.5523 13 25 13.4477 25 14C25 14.5523 24.5523 15 24 15H4C3.44772 15 3 14.5523 3 14Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M4 20C3.44772 20 3 20.4477 3 21C3 21.5523 3.44772 22 4 22H24C24.5523 22 25 21.5523 25 21C25 20.4477 24.5523 20 24 20H4Z"
-                      fill="white"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    height="28"
-                    version="1.1"
-                    viewBox="0 0 32 32"
-                    width="28"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M17.459,16.014l8.239-8.194c0.395-0.391,0.395-1.024,0-1.414c-0.394-0.391-1.034-0.391-1.428,0  l-8.232,8.187L7.73,6.284c-0.394-0.395-1.034-0.395-1.428,0c-0.394,0.396-0.394,1.037,0,1.432l8.302,8.303l-8.332,8.286  c-0.394,0.391-0.394,1.024,0,1.414c0.394,0.391,1.034,0.391,1.428,0l8.325-8.279l8.275,8.276c0.394,0.395,1.034,0.395,1.428,0  c0.394-0.396,0.394-1.037,0-1.432L17.459,16.014z"
-                      fill="#fff"
-                    />
-                    <g />
-                    <g />
-                    <g />
-                    <g />
-                    <g />
-                    <g />
-                  </svg>
-                )}
+              <button
+                className={
+                  "menu-toggle relative flex justify-center items-center w-7 h-7"
+                }
+              >
+                <svg
+                  className={`${!showMenu && "active"} absolute inset-0`}
+                  fill="none"
+                  height="28"
+                  viewBox="0 0 28 28"
+                  width="28"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3 7C3 6.44771 3.44772 6 4 6H24C24.5523 6 25 6.44771 25 7C25 7.55229 24.5523 8 24 8H4C3.44772 8 3 7.55229 3 7Z"
+                    fill="white"
+                    className="toggle-open-1"
+                  ></path>
+                  <path
+                    d="M3 14C3 13.4477 3.44772 13 4 13H24C24.5523 13 25 13.4477 25 14C25 14.5523 24.5523 15 24 15H4C3.44772 15 3 14.5523 3 14Z"
+                    fill="white"
+                    className="toggle-open-2"
+                  ></path>
+                  <path
+                    d="M4 20C3.44772 20 3 20.4477 3 21C3 21.5523 3.44772 22 4 22H24C24.5523 22 25 21.5523 25 21C25 20.4477 24.5523 20 24 20H4Z"
+                    fill="white"
+                    className="toggle-open-3"
+                  ></path>
+                </svg>
+                <svg
+                  className={`${showMenu && "active"} absolute inset-0`}
+                  height="28"
+                  version="1.1"
+                  viewBox="0 0 32 32"
+                  width="28"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M17.459,16.014l8.239-8.194c0.395-0.391,0.395-1.024,0-1.414c-0.394-0.391-1.034-0.391-1.428,0  l-8.232,8.187L7.73,6.284c-0.394-0.395-1.034-0.395-1.428,0c-0.394,0.396-0.394,1.037,0,1.432l8.302,8.303l-8.332,8.286  c-0.394,0.391-0.394,1.024,0,1.414c0.394,0.391,1.034,0.391,1.428,0l8.325-8.279l8.275,8.276c0.394,0.395,1.034,0.395,1.428,0  c0.394-0.396,0.394-1.037,0-1.432L17.459,16.014z"
+                    fill="#fff"
+                    className="toggle-close-1"
+                  />
+                  <g />
+                  <g />
+                  <g />
+                  <g />
+                  <g />
+                  <g />
+                </svg>
               </button>
             </div>
             <div
+              ref={menuRef}
               style={{ opacity: 0 }}
               className="mobile-menu absolute z-50 top-16 left-1/2 -translate-x-1/2"
             >
