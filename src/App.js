@@ -109,6 +109,17 @@ const App = () => {
     });
   });
 
+  useGSAP(() => {
+    gsap.from(".paralax", {
+      yPercent: -45,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".paralax",
+        scrub: 1,
+      },
+    });
+  });
+
   return (
     <ReactLenis root>
       <Header />
@@ -119,7 +130,7 @@ const App = () => {
 
         <section className="h-52 md:h-[600px] bg-cover bg-center">
           <img
-            className="sticky -z-10 top-1/2 bottom-1/2 my-auto h-full w-full object-cover"
+            className="paralax relative -z-10 -bottom-20 h-full w-full object-cover"
             src={paralax}
             alt="paralax"
           />
