@@ -2,8 +2,37 @@ import React from "react";
 import arrow from "../assets/arrow.svg";
 import semicircle from "../assets/semicircle.svg";
 import Circle from "../components/Circle";
+import { useGSAP } from "@gsap/react";
+import gsap from "https://esm.sh/gsap";
+import useScreenSize from "../hooks/useScreenSize";
 
 const Experience = () => {
+  const screenSize = useScreenSize();
+
+  useGSAP(() => {
+    const circles = gsap.utils.toArray(".circle");
+
+    const onMouseMove = (event) => {
+      const cursorX = event.clientX / screenSize.width - 0.5;
+      const cursorY = event.clientY / screenSize.height - 0.5;
+
+      circles.forEach((circle) => {
+        gsap.to(circle, {
+          x: cursorX * 20,
+          y: cursorY * 20,
+          ease: "power3.out",
+          duration: 0.5,
+        });
+      });
+    };
+
+    window.addEventListener("mousemove", onMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", onMouseMove);
+    };
+  }, []);
+
   return (
     <section
       id="about"
@@ -41,16 +70,20 @@ const Experience = () => {
             />
           </div>
 
-          <img
-            className="absolute top-24 left-52 md:left-96 rotate-[135deg] w-8 md:w-11"
-            src={arrow}
-            alt="arrow"
-          />
-          <img
-            className="absolute bottom-72 md:top-64 right-10 md:right-80 rotate-[135deg] md:-rotate-45 w-8 md:w-11"
-            src={arrow}
-            alt="arrow"
-          />
+          <div className="animate-vibrate w-full h-full">
+            <img
+              className="absolute -top-5 md:-top-20 left-52 md:left-96 rotate-[135deg] w-8 md:w-11"
+              src={arrow}
+              alt="arrow"
+            />
+          </div>
+          <div className="animate-vibrate w-full h-full">
+            <img
+              className="absolute -bottom-[500px] md:bottom-0 right-10 md:right-80 rotate-[135deg] md:-rotate-45 w-8 md:w-11"
+              src={arrow}
+              alt="arrow"
+            />
+          </div>
         </div>
       </div>
       <img
