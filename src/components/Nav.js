@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useLenis } from "lenis/react";
 import logo from "../assets/logo.svg";
-// import burgerMenu from "../assets/header/burger_menu.svg";
 import Button from "./Button";
 import useScreenSize from "../hooks/useScreenSize";
 import { useGSAP } from "@gsap/react";
@@ -11,6 +10,7 @@ const Nav = () => {
   const [showToggleBtn, setShowToggleBtn] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const menuRef = useRef(null);
+  const toggleButtonRef = useRef(null);
   const screenSize = useScreenSize();
   const lenis = useLenis(({ scroll }) => {
     // called every scroll
@@ -30,7 +30,6 @@ const Nav = () => {
   }, [screenSize.width]);
 
   useGSAP(() => {
-    // Links
     const links = gsap.utils.toArray("nav ul li");
 
     links.forEach((link) => {
@@ -64,7 +63,8 @@ const Nav = () => {
 
   useGSAP(() => {
     const menu = menuRef.current;
-    if (!menu) return;
+    const toggleButton = toggleButtonRef.current;
+    if (!menu || !toggleButton) return;
 
     const menuTl = gsap.timeline({
       defaults: { duration: 0.3, ease: "power4.inOut" },
@@ -84,8 +84,7 @@ const Nav = () => {
     }
 
     return () => {
-      const toggleButton = document.querySelector(".menu-toggle");
-      toggleButton?.addEventListener("click", () => {
+      toggleButton.addEventListener("click", () => {
         if (!showMenu) {
           menuTl.play();
         } else {
@@ -94,7 +93,7 @@ const Nav = () => {
       });
 
       return () => {
-        toggleButton?.removeEventListener("click", toggleMenu);
+        toggleButton.removeEventListener("click", toggleMenu);
       };
     };
   }, [showMenu]);
@@ -140,6 +139,7 @@ const Nav = () => {
                 <img src={logo} alt="logo" />
               </a>
               <button
+                ref={toggleButtonRef}
                 className={
                   "menu-toggle relative flex justify-center items-center w-7 h-7"
                 }
