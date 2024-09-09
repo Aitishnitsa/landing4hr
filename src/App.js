@@ -190,7 +190,7 @@ const App = () => {
               <span className="orange-ellipse top-1/3 md:top-72 flex justify-center"></span>
             </div>
             <div className="relative z-20 h-96 w-full">
-              <div className="md:absolute md:-top-48 md:left-48 -z-10 rotate-[22deg] md:grid grid-rows-4 grid-cols-3 gap-2">
+              <div className="md:absolute md:-top-48 md:left-10 lg:left-48 -z-10 rotate-[22deg] md:grid grid-rows-4 grid-cols-3 gap-2">
                 <img
                   className="neo md:relative md:top-0 md:left-0 absolute -top-0 left-10 col-start-1 row-start-2 row-end-4 w-[185px] md:w-60"
                   src={neoPost1}

@@ -57,13 +57,13 @@ const Experience = () => {
               text={"More than 1500 successful hires."}
             />
           </div>
-          <div className="absolute right-0 top-40 md:top-52 md:left-44">
+          <div className="absolute right-0 top-40 md:top-52 md:left-10 lg:left-44">
             <Circle
               width={"w-[184px] md:w-[219px]"}
               text={"3800 best experts from different niches."}
             />
           </div>
-          <div className="absolute bottom-2 right-0 md:right-60">
+          <div className="absolute bottom-2 right-0 lg:right-60">
             <Circle
               width={"w-[184px] md:w-[198px]"}
               text={"More than 4.5 years of experience."}
@@ -72,14 +72,14 @@ const Experience = () => {
 
           <div className="animate-vibrate w-full h-full">
             <img
-              className="absolute -top-5 md:-top-20 left-52 md:left-96 rotate-[135deg] w-8 md:w-11"
+              className="absolute -top-5 md:top-0 lg:-top-20 left-52 md:left-60 lg:left-96 rotate-[135deg] w-8 md:w-11"
               src={arrow}
               alt="arrow"
             />
           </div>
           <div className="animate-vibrate w-full h-full">
             <img
-              className="absolute -bottom-[500px] md:bottom-0 right-10 md:right-80 rotate-[135deg] md:-rotate-45 w-8 md:w-11"
+              className="absolute -bottom-[500px] md:-bottom-48 lg:bottom-0 right-10 md:right-44 lg:right-80 rotate-[135deg] md:rotate-45 lg:-rotate-45 w-8 md:w-11"
               src={arrow}
               alt="arrow"
             />

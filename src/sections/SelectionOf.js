@@ -7,7 +7,7 @@ const SelectionOf = ({ title, undertitle, tools, cardsInfo, children, id }) => {
   return (
     <section
       id={id}
-      className="h-full relative flex flex-col space-y-10 md:space-y-20 justify-between items-center my-20 md:my-[200px]"
+      className="h-full relative flex flex-col space-y-10 md:space-y-20 justify-between items-center my-20 lg:my-[200px]"
     >
       <div className="screen-width relative z-10 flex flex-col space-y-10 md:space-y-0 md:flex-row md:space-x-24 h-full md:h-56">
         <SectionHeading heading3={"CASE"} heading1={title}>
@@ -22,7 +22,7 @@ const SelectionOf = ({ title, undertitle, tools, cardsInfo, children, id }) => {
           </ul>
         </div>
       </div>
-      <ul className="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8 relative z-50 max-w-[216px] md:max-w-full w-full md:w-fit">
+      <ul className="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-4 lg:space-x-8 relative z-50 max-w-[216px] md:max-w-2xl lg:max-w-full w-full md:w-fit">
         {cardsInfo.map((info, index) => (
           <BlurCard cardClass={info.section} key={index} info={info} />
         ))}
