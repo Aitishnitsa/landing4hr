@@ -1,30 +1,70 @@
-import React, { useState, useEffect } from "react";
+import React, { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "https://esm.sh/gsap";
+import Globe from "react-globe.gl";
 import useScreenSize from "../hooks/useScreenSize";
 import Nav from "../components/Nav";
 import users from "../assets/header/users.png";
 import starYellow from "../assets/header/star.svg";
 import starGray from "../assets/header/star2.svg";
-import card0 from "../assets/header/header_card0.png";
-import card1 from "../assets/header/header_card1.png";
-import card2 from "../assets/header/header_card2.png";
-import card3 from "../assets/header/header_card3.png";
 import bdot from "../assets/header/blueDot.svg";
 import odot from "../assets/header/orangeDot.svg";
 
-const Header = () => {
-  const [mobileMode, setMobileMode] = useState(false);
-  const screenSize = useScreenSize();
+const dots = [
+  {
+    src: bdot,
+    style: "top-[407px] md:top-[173px] left-[323px] md:left-[217px]",
+  },
+  {
+    src: odot,
+    style: "top-[219px] md:top-[272px] left-[342px] md:left-[360px]",
+  },
+  {
+    src: odot,
+    style: "top-[490px] md:top-[518px] left-[85px] md:left-[436px]",
+  },
+  { src: odot, style: "top-[105px] left-[544px]" },
+  { src: bdot, style: "top-[430px] left-[688px]" },
+  { src: odot, style: "top-[232px] left-3 md:left-[709px]" },
+  { src: bdot, style: "top-[159px] left-[870px]" },
+  { src: odot, style: "top-[469px] left-[1000px]" },
+  { src: odot, style: "top-[175px] left-[1084px]" },
+];
 
-  useEffect(() => {
-    if (screenSize.width <= 768) {
-      setMobileMode(true);
-    } else {
-      setMobileMode(false);
+const N = 300;
+const gData = [...Array(N).keys()].map(() => ({
+  lat: (Math.random() - 0.5) * 180,
+  lng: (Math.random() - 0.5) * 360,
+  size: Math.random() / 3,
+  color: ["#ff8a00", "#8fc1ff"][Math.round(Math.random() * 3)],
+}));
+
+const Header = () => {
+  const screenSize = useScreenSize();
+  const isMobile = screenSize.width < 768;
+  const globeRef = useRef();
+  const globeContainer = useRef();
+
+  useGSAP(() => {
+    if (!isMobile) {
+      const globe = globeRef.current;
+      const container = globeContainer.current;
+
+      if (globe) {
+        globe.controls().autoRotate = true;
+        globe.controls().autoRotateSpeed = 0.5;
+      }
+
+      gsap.from(container, {
+        xPercent: 150,
+        duration: 3,
+        ease: "power4.out",
+      });
     }
-  }, [screenSize.width]);
+  }, []);
 
   return (
-    <header className="h-[600px] md:h-[630px] w-full bg-cover bg-center bg-headerBg flex flex-col relative overflow-hidden">
+    <header className="h-[630px] md:h-screen w-full bg-cover bg-center bg-headerBg flex flex-col relative overflow-hidden">
       <Nav />
       <section className="screen-width flex items-start justify-between h-[398px] relative space-x-11 mt-16">
         <div className="flex flex-col space-y-8 mt-20 w-[488px]">
@@ -39,96 +79,45 @@ const Header = () => {
           <div className="flex space-x-8 items-center">
             <img className="h-8" src={users} alt="users" />
             <ul className="flex">
-              <li>
-                <img src={starYellow} alt="star" />
-              </li>
-              <li>
-                <img src={starYellow} alt="star" />
-              </li>
-              <li>
-                <img src={starYellow} alt="star" />
-              </li>
-              <li>
-                <img src={starYellow} alt="star" />
-              </li>
+              {[...Array(4)].map((_, i) => (
+                <li key={i}>
+                  <img src={starYellow} alt="star" />
+                </li>
+              ))}
               <li>
                 <img src={starGray} alt="star" />
               </li>
             </ul>
           </div>
         </div>
-        {!mobileMode && (
-          <div className="relative w-[346px] h-[398px]">
-            <img
-              className="absolute bottom-[204px] left-0 w-[136px] hover:-translate-y-5 transition-transform duration-300 ease-in-out"
-              src={card0}
-              alt="star"
-            />
-            <img
-              className="absolute bottom-0 left-0 w-[136px] hover:-translate-y-5 transition-transform duration-300 ease-in-out"
-              src={card2}
-              alt="star"
-            />
-            <img
-              className="absolute top-5 left-[156px] w-[190px] hover:-translate-y-5 transition-transform duration-300 ease-in-out"
-              src={card1}
-              alt="star"
-            />
-            <img
-              className="absolute top-[147px] left-[156px] w-[136px] hover:-translate-y-5 transition-transform duration-300 ease-in-out"
-              src={card3}
-              alt="star"
-            />
-          </div>
-        )}
       </section>
 
-      {/* dots */}
-      <img
-        className="animate-blink w-10 h-10 absolute z-1 top-[407px] md:top-[173px] left-[323px] md:left-[217px]"
-        src={bdot}
-        alt="dot"
-      />
-      <img
-        className="animate-blink w-10 h-10 absolute z-1 top-[219px] md:top-[272px] left-[342px] md:left-[360px]"
-        src={odot}
-        alt="dot"
-      />
-      <img
-        className="animate-blink w-10 h-10 absolute z-1 top-[490px] md:top-[518px] left-[85px] md:left-[436px]"
-        src={odot}
-        alt="dot"
-      />
-      <img
-        className="animate-blink w-10 h-10 absolute z-1 top-[105px] left-[544px]"
-        src={odot}
-        alt="dot"
-      />
-      <img
-        className="animate-blink w-10 h-10 absolute z-1 top-[430px] left-[688px]"
-        src={bdot}
-        alt="dot"
-      />
-      <img
-        className="animate-blink w-10 h-10 absolute z-1 top-[232px] left-3 md:left-[709px]"
-        src={odot}
-        alt="dot"
-      />
-      <img
-        className="animate-blink w-10 h-10 absolute z-1 top-[159px] left-[870px]"
-        src={bdot}
-        alt="dot"
-      />
-      <img
-        className="animate-blink w-10 h-10 absolute z-1 top-[469px] left-[1000px]"
-        src={odot}
-        alt="dot"
-      />
-      <img
-        className="animate-blink w-10 h-10 absolute z-1 top-[175px] left-[1084px]"
-        src={odot}
-        alt="dot"
-      />
+      {dots.map((dot, index) => (
+        <img
+          key={index}
+          className={`animate-blink w-10 h-10 absolute z-1 ${dot.style}`}
+          src={dot.src}
+          alt={`dot-${index}`}
+        />
+      ))}
+
+      {!isMobile && (
+        <div
+          ref={globeContainer}
+          className="absolute z-1 top-0 right-1/4 w-1/2 rotate-[23px]"
+        >
+          <Globe
+            ref={globeRef}
+            globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
+            pointsData={gData}
+            pointAltitude="size"
+            pointColor="color"
+            backgroundColor="#00000000"
+            animateIn="true"
+            objectRotation={{ x: 0, y: 180, z: 0 }}
+          />
+        </div>
+      )}
     </header>
   );
 };

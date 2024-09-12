@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import useScreenSize from "../hooks/useScreenSize";
 import BorderCard from "../components/BorderCard";
 import hrAgencyImg from "../assets/hr_agency.svg";
@@ -11,22 +11,14 @@ const RecruitmentSystem = () => {
     "Integration into the employer's corporate system",
     "Formation of corporate culture",
   ];
-  const [mobileMode, setMobileMode] = useState(false);
   const screenSize = useScreenSize();
-
-  useEffect(() => {
-    if (screenSize.width <= 768) {
-      setMobileMode(true);
-    } else {
-      setMobileMode(false);
-    }
-  }, [screenSize.width]);
+  const isMobile = screenSize.width < 768;
 
   return (
     <section className="screen-width h-full relative my-20 md:my-[200px]">
       <img
         className="absolute -top-5 md:-top-16 left-36 md:right-0 m-0 z-0"
-        src={mobileMode ? hrImg : hrAgencyImg}
+        src={isMobile ? hrImg : hrAgencyImg}
         alt="hr agency"
       />
       <div className="relative z-10 flex flex-col space-y-10 md:space-y-14">

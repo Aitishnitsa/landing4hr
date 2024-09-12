@@ -1,5 +1,5 @@
 import "./index.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { ReactLenis } from "lenis/react";
 import { useGSAP } from "@gsap/react";
 import gsap from "https://esm.sh/gsap";
@@ -32,17 +32,21 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const App = () => {
   const [loading, setLoading] = useState(true);
-  const images = [
-    paralax,
-    neoPost1,
-    neoPost2,
-    neoPost3,
-    post1,
-    post2,
-    post3,
-    post4,
-    sepia,
-  ];
+
+  const images = useMemo(
+    () => [
+      paralax,
+      neoPost1,
+      neoPost2,
+      neoPost3,
+      post1,
+      post2,
+      post3,
+      post4,
+      sepia,
+    ],
+    []
+  );
 
   const tools1 = [
     "IT specialists' qualification assessment system;",
@@ -50,18 +54,21 @@ const App = () => {
     "Candidate training system;",
     "New employee support system.",
   ];
+
   const tools2 = [
     "Creating an HR Funnel;",
     "Expert assessment of soft skills;",
     "Analysis of compliance with business requirements;",
     "Selection of relevant candidates.",
   ];
+
   const cardsInfo1 = [
     { section: "info1", number: "2630", text: "Resumes received" },
     { section: "info1", number: "1106", text: "Resumes selected" },
     { section: "info1", number: "700+", text: "Interviews conducted" },
     { section: "info1", number: "372", text: "IT engineers hired" },
   ];
+
   const cardsInfo2 = [
     { section: "info2", number: "5700+", text: "Responces to the vacancy" },
     { section: "info2", number: "1800+", text: "Relevant candidates" },
@@ -123,12 +130,7 @@ const App = () => {
           ".post"
         );
       });
-    }
-  }, [loading]);
 
-  useGSAP(() => {
-    if (!loading) {
-      console.log();
       gsap.from(".paralax", {
         yPercent: -45,
         ease: "none",
@@ -258,7 +260,7 @@ const App = () => {
           </section>
 
           <img
-            className="fixed -z-10 top-1/2 bottom-1/2 my-auto h-full w-full object-cover"
+            className="fixed -z-50 top-1/2 bottom-1/2 my-auto h-full w-full object-cover select-none"
             src={sepia}
             alt="sepia"
           />
