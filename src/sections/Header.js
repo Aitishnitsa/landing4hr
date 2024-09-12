@@ -84,6 +84,11 @@ const Header = () => {
                   <img src={starYellow} alt="star" />
                 </li>
               ))}
+              {[...Array(4)].map((_, i) => (
+                <li key={i}>
+                  <img src={starYellow} alt="star" />
+                </li>
+              ))}
               <li>
                 <img src={starGray} alt="star" />
               </li>
