@@ -26,7 +26,7 @@ module.exports = {
           "50%": { opacity: 0 },
           "100%": { opacity: 1 },
         },
-        grow: {
+        rotate: {
           "0%": { transform: "rotate(-15)" },
           "50%": { transform: "rotate(0)" },
           "100%": { transform: "rotate(15)" },
@@ -42,7 +42,7 @@ module.exports = {
       },
       animation: {
         blink: "blink 10s ease-in-out infinite both",
-        grow: "grow 1.5s ease-in-out infinite",
+        rotate: "rotate 1.5s ease-in-out infinite",
         vibrate: "vibrate 3s linear infinite both",
       },
     },

@@ -51,7 +51,7 @@ const Preloader = ({ loading }) => {
       <div className="flex justify-center items-center h-screen">
         <div className="relative">
           <img
-            className="preload-image -rotate-12 animate-grow"
+            className="preload-image -rotate-12 animate-rotate"
             src={hrAgencyImg}
             alt="hr agency"
           />

@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "https://esm.sh/gsap";
+import SplitType from "split-type";
 import Globe from "react-globe.gl";
 import useScreenSize from "../hooks/useScreenSize";
 import Nav from "../components/Nav";
@@ -61,6 +62,18 @@ const Header = () => {
         ease: "power4.out",
       });
     }
+
+    const split = new SplitType(".description", { type: "chars" });
+
+    const typingTL = gsap.timeline();
+
+    typingTL.from(split.chars, {
+      duration: 0.01,
+      autoAlpha: 0,
+      stagger: {
+        each: 0.07,
+      },
+    });
   }, []);
 
   return (
@@ -70,7 +83,7 @@ const Header = () => {
         <div className="flex flex-col space-y-8 mt-20 w-[488px]">
           <div className="flex flex-col space-y-4">
             <h1>We create the best talent according to global standards</h1>
-            <p className="text-sm text-grey1">
+            <p className="description text-sm text-grey1">
               We successfully close the most challenging digital vacancies. We
               are trusted by companies with expert and non-standard projects
               because of our results.
@@ -79,11 +92,6 @@ const Header = () => {
           <div className="flex space-x-8 items-center">
             <img className="h-8" src={users} alt="users" />
             <ul className="flex">
-              {[...Array(4)].map((_, i) => (
-                <li key={i}>
-                  <img src={starYellow} alt="star" />
-                </li>
-              ))}
               {[...Array(4)].map((_, i) => (
                 <li key={i}>
                   <img src={starYellow} alt="star" />
