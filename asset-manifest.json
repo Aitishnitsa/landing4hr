@@ -1,9 +1,8 @@
 {
   "files": {
-    "main.css": "/landing4hr/static/css/main.2edb3676.css",
-    "main.js": "/landing4hr/static/js/main.310f7d75.js",
+    "main.css": "/landing4hr/static/css/main.3080ddbc.css",
+    "main.js": "/landing4hr/static/js/main.4c17a931.js",
     "static/js/453.a136148c.chunk.js": "/landing4hr/static/js/453.a136148c.chunk.js",
-    "static/media/sepia.png": "/landing4hr/static/media/sepia.fda1409ed958bda04fc8.png",
     "static/media/paralax.png": "/landing4hr/static/media/paralax.96c99946c58cb4e3b556.png",
     "static/media/honeycombs.png": "/landing4hr/static/media/honeycombs.177f083db844c357f444.png",
     "static/media/post2.png": "/landing4hr/static/media/post2.c1594ff96f579a5403ca.png",
@@ -16,6 +15,7 @@
     "static/media/phone4.png": "/landing4hr/static/media/phone4.d427f0e815d87ae30122.png",
     "static/media/neoPost2.png": "/landing4hr/static/media/neoPost2.350471db470040963ce2.png",
     "static/media/neoPost3.png": "/landing4hr/static/media/neoPost3.350471db470040963ce2.png",
+    "static/media/sepia.png": "/landing4hr/static/media/sepia.c865936dd0259739fb03.png",
     "static/media/phone5.png": "/landing4hr/static/media/phone5.d03c33aeabc2cc564e89.png",
     "static/media/post3.png": "/landing4hr/static/media/post3.c2222cd31f8ec4d8644a.png",
     "static/media/phone1.png": "/landing4hr/static/media/phone1.69735cb590577f7bbc91.png",
@@ -27,19 +27,15 @@
     "static/media/9.svg": "/landing4hr/static/media/9.2be80bb669fc95268f927390f4c55b3e.svg",
     "static/media/4.svg": "/landing4hr/static/media/4.4b66ea3bde230f3cf19499f1dd7e2e63.svg",
     "static/media/users.png": "/landing4hr/static/media/users.6b650702d07156693eef.png",
-    "static/media/header_card2.png": "/landing4hr/static/media/header_card2.6517d5db1dbd7d566ca8.png",
     "static/media/2.svg": "/landing4hr/static/media/2.c3589cfa5fc89c74146542c503b64470.svg",
-    "static/media/header_card3.png": "/landing4hr/static/media/header_card3.aa0ea7996da519ca339a.png",
     "static/media/1.svg": "/landing4hr/static/media/1.45d1de444d256c8c8446eeedfc51e750.svg",
     "static/media/6.svg": "/landing4hr/static/media/6.64454abdf7a3f3634bb2910e92c596b5.svg",
     "static/media/3.svg": "/landing4hr/static/media/3.84d10f0b005e4e9c693d1fb9a37038b6.svg",
     "static/media/11.svg": "/landing4hr/static/media/11.9c075e49839599fbc2184fe31083abdb.svg",
-    "static/media/header_card1.png": "/landing4hr/static/media/header_card1.c2a23bbf79c1419c8426.png",
     "static/media/10.svg": "/landing4hr/static/media/10.9ea117f2d410a24415d9333afad84c60.svg",
     "static/media/7.svg": "/landing4hr/static/media/7.e8e314767d69343a7be4c1802805d468.svg",
     "static/media/8.svg": "/landing4hr/static/media/8.b0b5d74507f2023a861e0130cb2782de.svg",
     "static/media/5.svg": "/landing4hr/static/media/5.de5477213c8118a147d431a127dafea9.svg",
-    "static/media/header_card0.png": "/landing4hr/static/media/header_card0.7bf7abda91d2e3b0b707.png",
     "static/media/stats.svg": "/landing4hr/static/media/stats.4b9fe1dd4f544b4cf9475399ab0cfbd3.svg",
     "static/media/blueDot.svg": "/landing4hr/static/media/blueDot.b03edcd4b69877d1abd0be21da5a6dec.svg",
     "static/media/orangeDot.svg": "/landing4hr/static/media/orangeDot.6ce3537bd9eb6886dc24dd8da8f42326.svg",
@@ -49,14 +45,13 @@
     "static/media/star2.svg": "/landing4hr/static/media/star2.ac6e9ac8961e7d6c08c71eea4ff0f4a7.svg",
     "static/media/semicircle.svg": "/landing4hr/static/media/semicircle.5c393f197f1560c4af6effc89ac37840.svg",
     "static/media/arrow.svg": "/landing4hr/static/media/arrow.729fb4c604ee4569d19729ef6db8f664.svg",
-    "static/media/burger_menu.svg": "/landing4hr/static/media/burger_menu.a9c00212f8e8f749c42331e1fec7ef96.svg",
     "static/media/circle.svg": "/landing4hr/static/media/circle.f6ee0a77278cce47c3670ea842289619.svg",
-    "main.2edb3676.css.map": "/landing4hr/static/css/main.2edb3676.css.map",
-    "main.310f7d75.js.map": "/landing4hr/static/js/main.310f7d75.js.map",
+    "main.3080ddbc.css.map": "/landing4hr/static/css/main.3080ddbc.css.map",
+    "main.4c17a931.js.map": "/landing4hr/static/js/main.4c17a931.js.map",
     "453.a136148c.chunk.js.map": "/landing4hr/static/js/453.a136148c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2edb3676.css",
-    "static/js/main.310f7d75.js"
+    "static/css/main.3080ddbc.css",
+    "static/js/main.4c17a931.js"
   ]
 }
