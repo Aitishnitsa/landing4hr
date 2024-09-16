@@ -4,10 +4,12 @@
   "homepage": "https://aitishnitsa.github.io/landing4hr",
   "private": true,
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@gsap/react": "^2.1.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "dotenv": "^16.4.5",
     "lenis": "^1.1.13",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

@@ -63,7 +63,7 @@ const Header = () => {
       });
     }
 
-    const split = new SplitType(".description", { type: "chars" });
+    const split = new SplitType(".description");
 
     const typingTL = gsap.timeline();
 

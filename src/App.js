@@ -27,6 +27,8 @@ import post2 from "./assets/socialMarketing/post2.png";
 import post3 from "./assets/socialMarketing/post3.png";
 import post4 from "./assets/socialMarketing/post4.png";
 import sepia from "./assets/sepia.png";
+import ContactForm from "./components/ContactForm";
+import { ContactFormProvider } from "./context/ContactFormContext";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -161,8 +163,9 @@ const App = () => {
   }, [images]);
 
   return (
-    <>
+    <ContactFormProvider>
       <Preloader loading={loading} />
+      <ContactForm />
       <ReactLenis root>
         <Header />
         <main className="overflow-hidden">
@@ -267,7 +270,7 @@ const App = () => {
         </main>
         <Footer />
       </ReactLenis>
-    </>
+    </ContactFormProvider>
   );
 };
 
