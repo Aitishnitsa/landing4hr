@@ -23,7 +23,6 @@ const Footer = () => {
             classes={
               "bg-primary2 px-3 md:px-6 py-3 hover:bg-white hover:text-primary2 uppercase mb-3 md:mb-0"
             }
-            link={"#"}
           >
             Write to the manager
           </Button>

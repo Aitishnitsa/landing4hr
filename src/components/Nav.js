@@ -289,7 +289,6 @@ const Nav = () => {
                 classes={
                   "bg-primary2 px-6 py-3 hover:bg-white hover:text-primary2 uppercase"
                 }
-                link={"#"}
               >
                 Write to the manager
               </Button>

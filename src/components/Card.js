@@ -27,7 +27,6 @@ const Card = ({ info }) => {
               ? "bg-white px-7 py-3 text-primary2 text-sm md:text-base font-semibold hover:bg-transparent border hover:border-white hover:text-white"
               : "border px-8 py-2.5 border-white text-[13px] font-medium hover:bg-primary2 hover:border-primary2"
           }
-          link={"#"}
         >
           <p
             className={
