@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Landing4HR
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a modern web-based platform that focuses on recruitment and HR strategies using the latest digital tools and animations for a dynamic user experience. It integrates GSAP animations, a Contact Form powered by EmailJS, and a visually interactive Globe to illustrate the global reach of the recruitment system.
 
-## Available Scripts
+Link: https://aitishnitsa.github.io/landing4hr/
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Animated Globe Interaction: A rotating globe showcases the platform's international reach, which animates in from the right side of the screen on load.
+- Dynamic GSAP Animations: Smooth animations for displaying recruitment stats, testimonials, and content using GSAP (GreenSock Animation Platform).
+- Context-Based Contact Form: A form powered by EmailJS for handling inquiries, displayed dynamically using React’s Context API.
+- Responsive Design: Fully responsive, supporting both desktop and mobile views with dynamic adjustments in the layout.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React: Core library for building the interactive user interface.
+- GSAP: For smooth animations and transitions across the page.
+- React Globe: A globe visualization for showcasing global reach.
+- EmailJS: Allows sending email messages through the contact form without a backend.
+- Tailwind CSS: For responsive and utility-first styling.
+- Lenis: For smooth scrolling effects.
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository:
+```
+git clone https://github.com/Aitishnitsa/landing4hr.git
+```
 
-### `npm run build`
+2. Install dependencies:
+```
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Configure the .env file with your EmailJS credentials:
+```
+REACT_APP_SERVICE_ID=your_service_id
+REACT_APP_TEMPLATE_ID=your_template_id
+REACT_APP_PUBLIC_KEY=your_public_key
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+4. Start the development server:
+```
+npm start
+```
