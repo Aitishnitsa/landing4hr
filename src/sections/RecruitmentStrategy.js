@@ -1,6 +1,5 @@
-import React from "react";
-import ListItem from "../components/ListItem";
 import honeycombs from "../assets/honeycombs.png";
+import ListItem from "../components/ListItem";
 
 const RecruitmentStrategy = () => {
   const recruitmentAdaptationText = [
@@ -12,22 +11,22 @@ const RecruitmentStrategy = () => {
   ];
 
   return (
-    <section className="screen-width h-full relative flex flex-col md:flex-row justify-between items-center my-20 md:my-[200px]">
+    <section className="screen-width relative my-20 flex h-full flex-col items-center justify-between md:my-[200px] md:flex-row">
       <div className="relative z-10 flex flex-col space-y-10 md:space-y-14">
         <h1 className="max-w-md">RECRUITMENT AND ADAPTATION STRATEGY</h1>
-        <ul className="max-w-lg flex flex-col space-y-3">
+        <ul className="flex max-w-lg flex-col space-y-3">
           {recruitmentAdaptationText.map((text, index) => (
             <ListItem key={index} text={text} />
           ))}
         </ul>
       </div>
       <img
-        className="max-w-72 h-fit mt-10 md:mt-0 relative z-20"
+        className="relative z-20 mt-10 h-fit max-w-72 md:mt-0"
         src={honeycombs}
         alt="honeycombs"
       />
       <div className="animate-blink md:hidden">
-        <span className="white-ellipse animate-blink top-80 left-60"></span>
+        <span className="white-ellipse left-60 top-80 animate-blink"></span>
       </div>
     </section>
   );

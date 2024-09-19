@@ -1,7 +1,7 @@
-import React, { useState, useContext, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { useGSAP } from "@gsap/react";
 import gsap from "https://esm.sh/gsap";
+import { useContext, useRef, useState } from "react";
 import { ContactFormContext } from "../context/ContactFormContext";
 
 const ContactForm = () => {
@@ -29,7 +29,7 @@ const ContactForm = () => {
           { yPercent: -100 },
           {
             yPercent: 0,
-          }
+          },
         )
         .from(formRef.current, {
           scale: 0,
@@ -63,7 +63,7 @@ const ContactForm = () => {
         formRef.current,
         {
           publicKey: process.env.REACT_APP_PUBLIC_KEY,
-        }
+        },
       )
       .then(
         () => {
@@ -81,19 +81,19 @@ const ContactForm = () => {
           setTimeout(() => {
             setStateMessage(null);
           }, 5000);
-        }
+        },
       );
     e.target.reset();
   };
 
   return (
-    <section className="relative w-full flex flex-col justify-center items-center">
+    <section className="relative flex w-full flex-col items-center justify-center">
       <div
         ref={formBg}
         onClick={toggleContactForm}
-        className="contact-form h-screen backdrop-blur-md bg-black/25 w-full fixed top-0 z-40"
+        className="contact-form fixed top-0 z-40 h-screen w-full bg-black/25 backdrop-blur-md"
       ></div>
-      <div className="w-full max-w-72 md:max-w-md lg:max-w-2xl fixed top-1/2 -translate-y-1/2 z-50 flex flex-col justify-center items-center">
+      <div className="fixed top-1/2 z-50 flex w-full max-w-72 -translate-y-1/2 flex-col items-center justify-center md:max-w-md lg:max-w-2xl">
         <div className="overflow-hidden">
           <h1 ref={formTitle} className="form-heading mb-4">
             Write to manager
@@ -102,12 +102,12 @@ const ContactForm = () => {
         <form
           ref={formRef}
           onSubmit={sendEmail}
-          className="contact-form bg-bgColor w-full rounded-lg p-4 flex flex-col shadow-[0px_0px_100px_0px_rgba(143,193,255,.4)]"
+          className="contact-form flex w-full flex-col rounded-lg bg-bgColor p-4 shadow-[0px_0px_100px_0px_rgba(143,193,255,.4)]"
         >
-          <div className="flex flex-col mb-4">
+          <div className="mb-4 flex flex-col">
             <label
               htmlFor="user_name"
-              className="mb-1 after:content-['*'] after:text-2xl after:leading-[.25rem] after:ml-0.5 after:text-red-500"
+              className="mb-1 after:ml-0.5 after:text-2xl after:leading-[.25rem] after:text-red-500 after:content-['*']"
             >
               Name
             </label>
@@ -116,14 +116,14 @@ const ContactForm = () => {
               name="user_name"
               id="user_name"
               placeholder="Enter your name..."
-              className="bg-transparent border border-lightBlack text-sm rounded-md px-3 py-2 focus:outline-none focus:border-primary2 hover:border-grey1 transition duration-300 ease"
+              className="ease rounded-md border border-lightBlack bg-transparent px-3 py-2 text-sm transition duration-300 hover:border-grey1 focus:border-primary2 focus:outline-none"
               required
             />
           </div>
-          <div className="flex flex-col mb-4">
+          <div className="mb-4 flex flex-col">
             <label
               htmlFor="user_email"
-              className="mb-1 after:content-['*'] after:text-2xl after:leading-[.25rem] after:ml-0.5 after:text-red-500"
+              className="mb-1 after:ml-0.5 after:text-2xl after:leading-[.25rem] after:text-red-500 after:content-['*']"
             >
               Email
             </label>
@@ -132,18 +132,18 @@ const ContactForm = () => {
               name="user_email"
               id="user_email"
               placeholder="Enter your email..."
-              className="peer bg-transparent border border-lightBlack mb-1 text-sm rounded-md px-3 py-2 focus:outline-none focus:border-primary2 hover:border-grey1 transition duration-300 ease"
+              className="ease peer mb-1 rounded-md border border-lightBlack bg-transparent px-3 py-2 text-sm transition duration-300 hover:border-grey1 focus:border-primary2 focus:outline-none"
               required
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             />
-            <span className="hidden mb-4 text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+            <span className="mb-4 hidden text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
               Please enter a valid email address
             </span>
           </div>
-          <div className="flex flex-col mb-4">
+          <div className="mb-4 flex flex-col">
             <label
               htmlFor="message"
-              className="mb-1 after:content-['*'] after:text-2xl after:leading-[.25rem] after:ml-0.5 after:text-red-500"
+              className="mb-1 after:ml-0.5 after:text-2xl after:leading-[.25rem] after:text-red-500 after:content-['*']"
             >
               Message
             </label>
@@ -151,22 +151,22 @@ const ContactForm = () => {
               name="message"
               id="message"
               placeholder="Type here..."
-              className="bg-transparent h-full min-h-[100px] lg:min-h-[200px] resize-none border border-lightBlack text-sm rounded-md px-3 py-2 focus:outline-none focus:border-primary2 hover:border-grey1 transition duration-300 ease"
+              className="ease h-full min-h-[100px] resize-none rounded-md border border-lightBlack bg-transparent px-3 py-2 text-sm transition duration-300 hover:border-grey1 focus:border-primary2 focus:outline-none lg:min-h-[200px]"
               required
             />
           </div>
-          <div className="w-full flex justify-around space-x-3">
+          <div className="flex w-full justify-around space-x-3">
             <button
               type="reset"
               onClick={toggleContactForm}
-              className="border border-white hover:border-primary2 py-1 rounded-full w-full font-bold transition-colors duration-300 ease-in-out"
+              className="w-full rounded-full border border-white py-1 font-bold transition-colors duration-300 ease-in-out hover:border-primary2"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={isSubmitting}
-              className="bg-primary2 py-1 rounded-full w-full font-bold hover:bg-white hover:text-primary2 transition-colors duration-300 ease-in-out"
+              className="w-full rounded-full bg-primary2 py-1 font-bold transition-colors duration-300 ease-in-out hover:bg-white hover:text-primary2"
             >
               Send
             </button>

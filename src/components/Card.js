@@ -1,4 +1,3 @@
-import React from "react";
 import Button from "./Button";
 
 const Card = ({ info }) => {
@@ -7,15 +6,15 @@ const Card = ({ info }) => {
       <li
         className={`${
           info.isMain
-            ? "px-6 py-[22px] bg-primary2"
-            : "p-[22px] bg-bgColor border border-grey1 lg:h-72"
-        } col-span-1 w-[267px] md:w-full rounded-xl flex flex-col space-y-5 justify-between`}
+            ? "bg-primary2 px-6 py-[22px]"
+            : "border border-grey1 bg-bgColor p-[22px] lg:h-72"
+        } col-span-1 flex w-[267px] flex-col justify-between space-y-5 rounded-xl md:w-full`}
       >
         <div className="flex flex-col space-y-5">
           <h2 className={info.isMain ? "" : "text-base"}>{info.heading}</h2>
           <p
             className={
-              info.isMain ? "text-sm" : "text-sm md:text-[13px] text-grey1"
+              info.isMain ? "text-sm" : "text-sm text-grey1 md:text-[13px]"
             }
           >
             {info.text}
@@ -31,8 +30,8 @@ const Card = ({ info }) => {
           <p
             className={
               info.isMain
-                ? "text-primary2 text-sm lg:text-base font-semibold hover:text-white"
-                : "text-sm lg:text-[13px] font-medium"
+                ? "text-sm font-semibold text-primary2 hover:text-white lg:text-base"
+                : "text-sm font-medium lg:text-[13px]"
             }
           >
             I'm interested

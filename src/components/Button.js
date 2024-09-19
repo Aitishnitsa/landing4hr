@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { ContactFormContext } from "../context/ContactFormContext";
 
 const Button = ({ classes, children }) => {
@@ -6,7 +6,7 @@ const Button = ({ classes, children }) => {
 
   return (
     <button
-      className={`${classes} rounded-full font-bold text-xs text-center transition-colors duration-300 ease-in-out`}
+      className={`${classes} rounded-full text-center text-xs font-bold transition-colors duration-300 ease-in-out`}
       onClick={(e) => {
         e.preventDefault();
         toggleContactForm();

@@ -1,8 +1,7 @@
-import React from "react";
-import circles from "../assets/circles.svg";
 import { useGSAP } from "@gsap/react";
-import gsap from "https://esm.sh/gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "https://esm.sh/gsap";
+import circles from "../assets/circles.svg";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -39,7 +38,7 @@ const SystemsInfo = () => {
           opacity: 0.1,
           stagger: 0.5,
         },
-        "-=.5"
+        "-=.5",
       );
     });
   });
@@ -47,7 +46,7 @@ const SystemsInfo = () => {
   return (
     <section
       id="systems-info"
-      className="h-full relative flex justify-between items-center my-20 md:my-[200px]"
+      className="relative my-20 flex h-full items-center justify-between md:my-[200px]"
     >
       <div className="screen-width relative z-10 flex flex-col space-y-3 md:space-y-5">
         {text.map((item, index) => (
@@ -57,7 +56,7 @@ const SystemsInfo = () => {
         ))}
       </div>
       <img
-        className="animate-blink absolute top-1/2 bottom-1/2 my-auto right-0"
+        className="absolute bottom-1/2 right-0 top-1/2 my-auto animate-blink"
         src={circles}
         alt="circles"
       />

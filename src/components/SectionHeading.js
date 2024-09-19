@@ -1,5 +1,3 @@
-import React from "react";
-
 const SectionHeading = ({ heading3, heading1, center, children }) => {
   return (
     <>

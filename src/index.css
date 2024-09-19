@@ -1,97 +1,97 @@
 @tailwind base;
 
 @layer base {
-    body {
-        @apply bg-bgColor text-white overflow-x-hidden scroll-smooth
-    }
+  body {
+    @apply overflow-x-hidden scroll-smooth bg-bgColor text-white;
+  }
 
-    h1 {
-        @apply uppercase font-extrabold text-2xl md:text-3xl lg:text-4.5xl lg:leading-tight
-    }
+  h1 {
+    @apply text-2xl font-extrabold uppercase md:text-3xl lg:text-4.5xl lg:leading-tight;
+  }
 
-    h2 {
-        @apply uppercase font-bold text-lg md:text-xl lg:text-1.5xl
-    }
+  h2 {
+    @apply text-lg font-bold uppercase md:text-xl lg:text-1.5xl;
+  }
 
-    h3 {
-        @apply uppercase font-bold text-xxs text-primary2
-    }
+  h3 {
+    @apply text-xxs font-bold uppercase text-primary2;
+  }
 
-    p {
-        @apply leading-tight
-    }
+  p {
+    @apply leading-tight;
+  }
 
-    main {
-        @apply bg-bgColor relative z-0
-    }
+  main {
+    @apply relative z-0 bg-bgColor;
+  }
 }
 
 @tailwind components;
 
 @layer components {
-    header {
-        background-image: url('./assets/header/map2.png');
+  header {
+    background-image: url("./assets/header/map2.png");
+  }
+
+  .screen-width {
+    @apply relative z-10 mx-auto w-full max-w-[280px] sm:max-w-xl md:max-w-2xl lg:max-w-4xl;
+  }
+
+  .paralax {
+    background-image: url("./assets/paralax.png");
+  }
+
+  .white-ellipse {
+    position: absolute;
+    width: 257px;
+    height: 257px;
+    z-index: -20;
+
+    background: linear-gradient(176.14deg, #ffffff 23.48%, #8fc1ff 96.2%);
+    filter: blur(122px);
+  }
+
+  .orange-ellipse {
+    position: absolute;
+    width: 343px;
+    height: 343px;
+    z-index: -20;
+
+    background: #ff8a00;
+    filter: blur(111px);
+  }
+
+  .blue-ellipse {
+    position: absolute;
+    width: 231px;
+    height: 231px;
+    z-index: -20;
+
+    background: #8fc1ff;
+    filter: blur(100px);
+  }
+
+  /* LOOPER */
+  @keyframes slideAnim {
+    from {
+      transform: translateX(0%);
     }
 
-    .screen-width {
-        @apply w-full max-w-[280px] sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto relative z-10
+    to {
+      transform: translateX(-100%);
     }
+  }
 
-    .paralax {
-        background-image: url('./assets/paralax.png');
-    }
+  .looper__innerList[data-animate="true"] .looper__listInstance {
+    animation: slideAnim 20s linear infinite;
+  }
 
-    .white-ellipse {
-        position: absolute;
-        width: 257px;
-        height: 257px;
-        z-index: -20;
+  .looper__listInstance {
+    display: flex;
+    width: max-content;
 
-        background: linear-gradient(176.14deg, #FFFFFF 23.48%, #8FC1FF 96.2%);
-        filter: blur(122px);
-    }
-
-    .orange-ellipse {
-        position: absolute;
-        width: 343px;
-        height: 343px;
-        z-index: -20;
-
-        background: #FF8A00;
-        filter: blur(111px);
-    }
-
-    .blue-ellipse {
-        position: absolute;
-        width: 231px;
-        height: 231px;
-        z-index: -20;
-
-        background: #8FC1FF;
-        filter: blur(100px);
-    }
-
-    /* LOOPER */
-    @keyframes slideAnim {
-        from {
-            transform: translateX(0%);
-        }
-
-        to {
-            transform: translateX(-100%);
-        }
-    }
-
-    .looper__innerList[data-animate="true"] .looper__listInstance {
-        animation: slideAnim 20s linear infinite;
-    }
-
-    .looper__listInstance {
-        display: flex;
-        width: max-content;
-
-        animation: none;
-    }
+    animation: none;
+  }
 }
 
 @tailwind utilities;
@@ -103,37 +103,37 @@
  **************************************************/
 
 svg .toggle-open-1 {
-    fill: transparent;
-    transition: fill 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
+  fill: transparent;
+  transition: fill 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
 }
 
 svg.active .toggle-open-1 {
-    fill: rgb(255, 255, 255);
+  fill: rgb(255, 255, 255);
 }
 
 svg .toggle-open-2 {
-    fill: transparent;
-    transition: fill 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0.1s;
+  fill: transparent;
+  transition: fill 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0.1s;
 }
 
 svg.active .toggle-open-2 {
-    fill: rgb(255, 255, 255);
+  fill: rgb(255, 255, 255);
 }
 
 svg .toggle-open-3 {
-    fill: transparent;
-    transition: fill 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0.2s;
+  fill: transparent;
+  transition: fill 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0.2s;
 }
 
 svg.active .toggle-open-3 {
-    fill: rgb(255, 255, 255);
+  fill: rgb(255, 255, 255);
 }
 
 svg .toggle-close-1 {
-    fill: transparent;
-    transition: fill 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
+  fill: transparent;
+  transition: fill 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
 }
 
 svg.active .toggle-close-1 {
-    fill: rgb(255, 255, 255);
+  fill: rgb(255, 255, 255);
 }

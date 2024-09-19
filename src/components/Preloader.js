@@ -1,7 +1,6 @@
-import React from "react";
 import { useGSAP } from "@gsap/react";
-import SplitType from "split-type";
 import gsap from "https://esm.sh/gsap";
+import SplitType from "split-type";
 import hrAgencyImg from "../assets/hr.svg";
 
 const Preloader = ({ loading }) => {
@@ -46,9 +45,9 @@ const Preloader = ({ loading }) => {
 
   return (
     <div
-      className={`loader backdrop-blur-md bg-black/25 w-full fixed z-50 left-1/2 -translate-x-1/2`}
+      className={`loader fixed left-1/2 z-50 w-full -translate-x-1/2 bg-black/25 backdrop-blur-md`}
     >
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex h-screen items-center justify-center">
         <div className="relative">
           <img
             className="preload-image -rotate-12 animate-rotate"

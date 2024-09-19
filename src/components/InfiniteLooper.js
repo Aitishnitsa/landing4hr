@@ -1,5 +1,7 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import c1_1 from "../assets/looper/1/1.svg";
+import c1_10 from "../assets/looper/1/10.svg";
+import c1_11 from "../assets/looper/1/11.svg";
 import c1_2 from "../assets/looper/1/2.svg";
 import c1_3 from "../assets/looper/1/3.svg";
 import c1_4 from "../assets/looper/1/4.svg";
@@ -8,9 +10,8 @@ import c1_6 from "../assets/looper/1/6.svg";
 import c1_7 from "../assets/looper/1/7.svg";
 import c1_8 from "../assets/looper/1/8.svg";
 import c1_9 from "../assets/looper/1/9.svg";
-import c1_10 from "../assets/looper/1/10.svg";
-import c1_11 from "../assets/looper/1/11.svg";
 import c2_1 from "../assets/looper/2/1.svg";
+import c2_10 from "../assets/looper/2/10.svg";
 import c2_2 from "../assets/looper/2/2.svg";
 import c2_3 from "../assets/looper/2/3.svg";
 import c2_4 from "../assets/looper/2/4.svg";
@@ -19,7 +20,6 @@ import c2_6 from "../assets/looper/2/6.svg";
 import c2_7 from "../assets/looper/2/7.svg";
 import c2_8 from "../assets/looper/2/8.svg";
 import c2_9 from "../assets/looper/2/9.svg";
-import c2_10 from "../assets/looper/2/10.svg";
 
 const InfiniteLooper = ({ speed, direction }) => {
   const [looperInstances, setLooperInstances] = useState(1);
@@ -85,7 +85,7 @@ const InfiniteLooper = ({ speed, direction }) => {
   return (
     <div className="w-full overflow-hidden" ref={outerRef}>
       <div
-        className="looper__innerList flex centetr w-fit"
+        className="looper__innerList centetr flex w-fit"
         ref={innerRef}
         data-animate="true"
         style={{

@@ -23,16 +23,19 @@ Link: https://aitishnitsa.github.io/landing4hr/
 ## Installation
 
 1. Clone the repository:
+
 ```
 git clone https://github.com/Aitishnitsa/landing4hr.git
 ```
 
 2. Install dependencies:
+
 ```
 npm install
 ```
 
 3. Configure the .env file with your EmailJS credentials:
+
 ```
 REACT_APP_SERVICE_ID=your_service_id
 REACT_APP_TEMPLATE_ID=your_template_id
@@ -40,6 +43,7 @@ REACT_APP_PUBLIC_KEY=your_public_key
 ```
 
 4. Start the development server:
+
 ```
 npm start
 ```

@@ -1,22 +1,21 @@
-import React from "react";
 import logo from "../assets/logo.svg";
 import Button from "../components/Button";
 
 const Footer = () => {
   return (
     <>
-      <footer className="screen-width relative flex flex-col-reverse md:flex-row items-center justify-between my-16 overflow-hidden">
-        <div className="flex flex-col space-y-5 w-52 items-center md:items-start">
+      <footer className="screen-width relative my-16 flex flex-col-reverse items-center justify-between overflow-hidden md:flex-row">
+        <div className="flex w-52 flex-col items-center space-y-5 md:items-start">
           <a href="#">
             <img src={logo} alt="logo" />
           </a>
-          <div className="flex justify-between w-full">
+          <div className="flex w-full justify-between">
             <span className="text-xs">© 2024, SkillHunter</span>
             <span className="text-xs">Privacy Policy</span>
           </div>
         </div>
-        <div className="h-fit flex flex-col-reverse md:flex-row items-center md:space-x-10 mb-10 md:mb-0">
-          <p className="leading-snug text-xs w-44 md:w-[132px] text-center md:text-start">
+        <div className="mb-10 flex h-fit flex-col-reverse items-center md:mb-0 md:flex-row md:space-x-10">
+          <p className="w-44 text-center text-xs leading-snug md:w-[132px] md:text-start">
             Request a callback and speak with an expert
           </p>
           <Button

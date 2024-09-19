@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useLenis } from "lenis/react";
-import logo from "../assets/logo.svg";
-import Button from "./Button";
-import useScreenSize from "../hooks/useScreenSize";
 import { useGSAP } from "@gsap/react";
 import gsap from "https://esm.sh/gsap";
+import { useLenis } from "lenis/react";
+import { useEffect, useRef, useState } from "react";
+import logo from "../assets/logo.svg";
+import useScreenSize from "../hooks/useScreenSize";
+import Button from "./Button";
 
 const Nav = () => {
   const [showToggleBtn, setShowToggleBtn] = useState(false);
@@ -48,7 +48,7 @@ const Nav = () => {
         {
           transform: "scaleX(1)",
         },
-        "<"
+        "<",
       );
       tl.pause();
 
@@ -77,7 +77,7 @@ const Nav = () => {
         {
           opacity: 1,
           xPercent: 0,
-        }
+        },
       );
     } else {
       menuTl.to(menu, { opacity: 0, xPercent: 100 });
@@ -116,32 +116,32 @@ const Nav = () => {
 
     const anchorLinks = document.querySelectorAll("a[href^='#']");
     anchorLinks.forEach((link) =>
-      link.addEventListener("click", handleAnchorClick)
+      link.addEventListener("click", handleAnchorClick),
     );
 
     return () => {
       anchorLinks.forEach((link) =>
-        link.removeEventListener("click", handleAnchorClick)
+        link.removeEventListener("click", handleAnchorClick),
       );
     };
   }, [lenis]);
 
   return (
     <>
-      <div className="flex justify-between py-2 md:py-5 screen-width">
+      <div className="screen-width flex justify-between py-2 md:py-5">
         {showToggleBtn ? (
           <div
-            className={"relative w-full flex flex-col items-stretch"}
+            className={"relative flex w-full flex-col items-stretch"}
             onClick={toggleMenu}
           >
-            <div className="w-full flex justify-between items-center">
+            <div className="flex w-full items-center justify-between">
               <a href="#">
                 <img src={logo} alt="logo" />
               </a>
               <button
                 ref={toggleButtonRef}
                 className={
-                  "menu-toggle relative flex justify-center items-center w-7 h-7"
+                  "menu-toggle relative flex h-7 w-7 items-center justify-center"
                 }
               >
                 <svg
@@ -193,14 +193,14 @@ const Nav = () => {
             <div
               ref={menuRef}
               style={{ opacity: 0 }}
-              className="mobile-menu absolute z-50 top-16 left-1/2 -translate-x-1/2"
+              className="mobile-menu absolute left-1/2 top-16 z-50 -translate-x-1/2"
             >
               <nav className="h-1/3 w-full">
-                <ul className="flex space-x-6 font-semibold text-base">
+                <ul className="flex space-x-6 text-base font-semibold">
                   <li>
                     <a
                       href="#cases"
-                      className="relative overflow-hidden flex justify-between"
+                      className="relative flex justify-between overflow-hidden"
                       onClick={toggleMenu}
                     >
                       CASES
@@ -209,7 +209,7 @@ const Nav = () => {
                   <li>
                     <a
                       href="#it-specialists-section"
-                      className="relative overflow-hidden flex justify-between"
+                      className="relative flex justify-between overflow-hidden"
                       onClick={toggleMenu}
                     >
                       TOOLS
@@ -218,7 +218,7 @@ const Nav = () => {
                   <li>
                     <a
                       href="#about"
-                      className="relative overflow-hidden flex justify-between"
+                      className="relative flex justify-between overflow-hidden"
                       onClick={toggleMenu}
                     >
                       ABOUT
@@ -230,59 +230,59 @@ const Nav = () => {
           </div>
         ) : (
           <>
-            <div className="flex space-x-10 items-center">
+            <div className="flex items-center space-x-10">
               <a href="#">
                 <img src={logo} alt="logo" />
               </a>
               <nav>
-                <ul className="flex space-x-6 font-semibold text-xxs">
+                <ul className="flex space-x-6 text-xxs font-semibold">
                   <li>
                     <a
                       href="#cases"
-                      className="relative overflow-hidden flex justify-between"
+                      className="relative flex justify-between overflow-hidden"
                     >
-                      <div className="overflow-hidden h-3 flex items-center justify-center flex-col">
+                      <div className="flex h-3 flex-col items-center justify-center overflow-hidden">
                         <p className="primary w-full translate-y-1/2">CASES</p>
                         <p className="secondary w-full translate-y-2/3">
                           CASES
                         </p>
                       </div>
-                      <div className="line absolute -bottom-px origin-center w-full scale-0 border border-b-px border-white"></div>
+                      <div className="line border-b-px absolute -bottom-px w-full origin-center scale-0 border border-white"></div>
                     </a>
                   </li>
                   <li>
                     <a
                       href="#it-specialists-section"
-                      className="relative overflow-hidden flex justify-between"
+                      className="relative flex justify-between overflow-hidden"
                     >
-                      <div className="overflow-hidden h-3 flex items-center justify-center flex-col">
+                      <div className="flex h-3 flex-col items-center justify-center overflow-hidden">
                         <p className="primary w-full translate-y-1/2">TOOLS</p>
                         <p className="secondary w-full translate-y-2/3">
                           TOOLS
                         </p>
                       </div>
-                      <div className="line absolute -bottom-px origin-center w-full scale-0 border border-b-px border-white"></div>
+                      <div className="line border-b-px absolute -bottom-px w-full origin-center scale-0 border border-white"></div>
                     </a>
                   </li>
                   <li>
                     <a
                       href="#about"
-                      className="relative overflow-hidden flex justify-between"
+                      className="relative flex justify-between overflow-hidden"
                     >
-                      <div className="overflow-hidden h-3 flex items-center justify-center flex-col">
+                      <div className="flex h-3 flex-col items-center justify-center overflow-hidden">
                         <p className="primary w-full translate-y-1/2">ABOUT</p>
                         <p className="secondary w-full translate-y-2/3">
                           ABOUT
                         </p>
                       </div>
-                      <div className="line absolute -bottom-px origin-center w-full scale-0 border border-b-px border-white"></div>
+                      <div className="line border-b-px absolute -bottom-px w-full origin-center scale-0 border border-white"></div>
                     </a>
                   </li>
                 </ul>
               </nav>
             </div>
-            <div className="h-fit flex items-center space-x-5">
-              <p className="leading-snug text-xs w-[132px]">
+            <div className="flex h-fit items-center space-x-5">
+              <p className="w-[132px] text-xs leading-snug">
                 Request a callback and speak with an expert
               </p>
               <Button

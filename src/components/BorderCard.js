@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "https://esm.sh/gsap";
+import { useRef } from "react";
 
 const BorderCard = ({ children }) => {
   const cardRef = useRef(null);
@@ -81,7 +81,7 @@ const BorderCard = ({ children }) => {
   return (
     <li
       ref={cardRef}
-      className="border-card w-32 md:w-[211px] h-32 border border-grey1 rounded-xl flex justify-center items-center text-center"
+      className="border-card flex h-32 w-32 items-center justify-center rounded-xl border border-grey1 text-center md:w-[211px]"
     >
       {children}
     </li>

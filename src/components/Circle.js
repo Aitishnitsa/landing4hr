@@ -1,14 +1,13 @@
-import React from "react";
 import circle from "../assets/circle.svg";
 
 const Circle = ({ width, text }) => {
   return (
     <div
-      className={`circle relative h-fit ${width} flex justify-center items-center`}
+      className={`circle relative h-fit ${width} flex items-center justify-center`}
     >
       <img className={`${width} h-fit`} src={circle} alt="circle" />
       <div className="absolute text-left">
-        <p className="uppercase text-primary2 lining-nums font-semibold text-xxs max-w-24 md:max-w-32">
+        <p className="max-w-24 text-xxs font-semibold uppercase lining-nums text-primary2 md:max-w-32">
           {text}
         </p>
       </div>

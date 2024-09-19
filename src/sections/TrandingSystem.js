@@ -1,4 +1,3 @@
-import React from "react";
 import Card from "../components/Card";
 
 const TrandingSystem = () => {
@@ -26,16 +25,16 @@ const TrandingSystem = () => {
   ];
 
   return (
-    <section className="screen-width h-full relative flex justify-between items-center my-20 md:my-[200px]">
-      <div className="relative z-10 flex flex-col space-y-10 md:space-y-14 w-full">
+    <section className="screen-width relative my-20 flex h-full items-center justify-between md:my-[200px]">
+      <div className="relative z-10 flex w-full flex-col space-y-10 md:space-y-14">
         <h1 className="max-w-72 md:max-w-md">PERSONNEL TRANDING SYSTEM</h1>
         <div className="relative flex justify-center lg:justify-start">
-          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-8 md:gap-x-5 items-center relative z-10">
+          <ul className="relative z-10 grid grid-cols-1 items-center gap-y-8 md:grid-cols-2 md:gap-x-5 lg:grid-cols-4">
             {personnelTrandingText.map((info, index) => (
               <Card key={index} info={info} />
             ))}
           </ul>
-          <div className="hidden lg:block absolute z-0 bottom-1/2 top-1/2 my-auto w-full h-[1px] bg-white"></div>
+          <div className="absolute bottom-1/2 top-1/2 z-0 my-auto hidden h-[1px] w-full bg-white lg:block"></div>
         </div>
       </div>
     </section>

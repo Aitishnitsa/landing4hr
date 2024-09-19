@@ -1,15 +1,15 @@
-import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "https://esm.sh/gsap";
-import SplitType from "split-type";
+import { useRef } from "react";
 import Globe from "react-globe.gl";
-import useScreenSize from "../hooks/useScreenSize";
-import Nav from "../components/Nav";
-import users from "../assets/header/users.png";
-import starYellow from "../assets/header/star.svg";
-import starGray from "../assets/header/star2.svg";
+import SplitType from "split-type";
 import bdot from "../assets/header/blueDot.svg";
 import odot from "../assets/header/orangeDot.svg";
+import starYellow from "../assets/header/star.svg";
+import starGray from "../assets/header/star2.svg";
+import users from "../assets/header/users.png";
+import Nav from "../components/Nav";
+import useScreenSize from "../hooks/useScreenSize";
 
 const dots = [
   {
@@ -77,10 +77,10 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="h-[630px] md:h-screen w-full bg-cover bg-center bg-headerBg flex flex-col relative overflow-hidden">
+    <header className="relative flex h-[630px] w-full flex-col overflow-hidden bg-headerBg bg-cover bg-center md:h-screen">
       <Nav />
-      <section className="screen-width flex items-start justify-between h-[398px] relative space-x-11 mt-16">
-        <div className="flex flex-col space-y-8 mt-20 w-[488px]">
+      <section className="screen-width relative mt-16 flex h-[398px] items-start justify-between space-x-11">
+        <div className="mt-20 flex w-[488px] flex-col space-y-8">
           <div className="flex flex-col space-y-4">
             <h1>We create the best talent according to global standards</h1>
             <p className="description text-sm text-grey1">
@@ -89,7 +89,7 @@ const Header = () => {
               because of our results.
             </p>
           </div>
-          <div className="flex space-x-8 items-center">
+          <div className="flex items-center space-x-8">
             <img className="h-8" src={users} alt="users" />
             <ul className="flex">
               {[...Array(4)].map((_, i) => (
@@ -108,7 +108,7 @@ const Header = () => {
       {dots.map((dot, index) => (
         <img
           key={index}
-          className={`animate-blink w-10 h-10 absolute z-1 ${dot.style}`}
+          className={`z-1 absolute h-10 w-10 animate-blink ${dot.style}`}
           src={dot.src}
           alt={`dot-${index}`}
         />
@@ -117,7 +117,7 @@ const Header = () => {
       {!isMobile && (
         <div
           ref={globeContainer}
-          className="absolute z-1 top-0 right-1/4 w-1/2 rotate-[23px]"
+          className="z-1 absolute right-1/4 top-0 w-1/2 rotate-[23px]"
         >
           <Globe
             ref={globeRef}
