@@ -71,7 +71,6 @@
     filter: blur(100px);
   }
 
-  /* LOOPER */
   @keyframes slideAnim {
     from {
       transform: translateX(0%);

@@ -12,9 +12,7 @@ const Nav = () => {
   const menuRef = useRef(null);
   const toggleButtonRef = useRef(null);
   const screenSize = useScreenSize();
-  const lenis = useLenis(({ scroll }) => {
-    // called every scroll
-  });
+  const lenis = useLenis(({ scroll }) => {});
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);

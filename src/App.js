@@ -153,12 +153,11 @@ const App = () => {
       }
     };
 
-    // Preload images
     images.forEach((src) => {
       const img = new Image();
       img.src = src;
       img.onload = handleImageLoad;
-      img.onerror = handleImageLoad; // Also count errors to avoid infinite loading
+      img.onerror = handleImageLoad;
     });
   }, [images]);
 
