@@ -10,7 +10,7 @@ import phone5 from "../assets/phones/phone5.png";
 import phone6 from "../assets/phones/phone6.png";
 import SectionHeading from "../components/SectionHeading";
 
-gsap.registerPlugin(useGSAP, ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
 const Cases = () => {
   useGSAP(() => {

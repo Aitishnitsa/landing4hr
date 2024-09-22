@@ -1,4 +1,9 @@
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "https://esm.sh/gsap";
 import Card from "../components/Card";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const TrandingSystem = () => {
   const personnelTrandingText = [
@@ -24,17 +29,48 @@ const TrandingSystem = () => {
     },
   ];
 
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#tranding-system",
+        start: "top bottom",
+        end: "bottom top",
+        toggleActions: "play none play reverse",
+      },
+      defaults: {
+        ease: "power4.out",
+        duration: 1,
+      },
+    });
+
+    tl.fromTo(
+      ".just-list li",
+      {
+        yPercent: 150,
+      },
+      {
+        yPercent: 0,
+        stagger: 0.2,
+      },
+    ).from(".card-line", {
+      scale: 0,
+    });
+  });
+
   return (
-    <section className="screen-width relative my-20 flex h-full items-center justify-between md:my-[200px]">
+    <section
+      id="tranding-system"
+      className="screen-width relative my-20 flex h-full items-center justify-between md:my-[200px]"
+    >
       <div className="relative z-10 flex w-full flex-col space-y-10 md:space-y-14">
         <h1 className="max-w-72 md:max-w-md">PERSONNEL TRANDING SYSTEM</h1>
         <div className="relative flex justify-center lg:justify-start">
-          <ul className="relative z-10 grid grid-cols-1 items-center gap-y-8 md:grid-cols-2 md:gap-x-5 lg:grid-cols-4">
+          <ul className="just-list relative z-10 grid grid-cols-1 items-center gap-y-8 overflow-hidden md:grid-cols-2 md:gap-x-5 lg:grid-cols-4">
             {personnelTrandingText.map((info, index) => (
               <Card key={index} info={info} />
             ))}
           </ul>
-          <div className="absolute bottom-1/2 top-1/2 z-0 my-auto hidden h-[1px] w-full bg-white lg:block"></div>
+          <div className="card-line absolute bottom-1/2 top-1/2 z-0 my-auto hidden h-[1px] w-full origin-center bg-white lg:block"></div>
         </div>
       </div>
     </section>

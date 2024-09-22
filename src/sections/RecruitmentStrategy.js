@@ -1,5 +1,10 @@
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "https://esm.sh/gsap";
 import honeycombs from "../assets/honeycombs.png";
 import ListItem from "../components/ListItem";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const RecruitmentStrategy = () => {
   const recruitmentAdaptationText = [
@@ -10,8 +15,38 @@ const RecruitmentStrategy = () => {
     "Candidates are trained according to the world's best personnel training systems and have practical, highly qualified experience.",
   ];
 
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#recruitment-strategy",
+        start: "top center",
+        end: "bottom top",
+        toggleActions: "play none play reverse",
+      },
+      defaults: {
+        ease: "elastic.out(1, 0.5)",
+        duration: 1,
+      },
+    });
+
+    tl.from("#recruitment-strategy li", {
+      xPercent: -50,
+      opacity: 0,
+      stagger: 0.2,
+    }).from(
+      "#recruitment-strategy img",
+      {
+        scaleY: 0,
+      },
+      "<",
+    );
+  });
+
   return (
-    <section className="screen-width relative my-20 flex h-full flex-col items-center justify-between md:my-[200px] md:flex-row">
+    <section
+      id="recruitment-strategy"
+      className="screen-width relative my-20 flex h-full flex-col items-center justify-between md:my-[200px] md:flex-row"
+    >
       <div className="relative z-10 flex flex-col space-y-10 md:space-y-14">
         <h1 className="max-w-md">RECRUITMENT AND ADAPTATION STRATEGY</h1>
         <ul className="flex max-w-lg flex-col space-y-3">
