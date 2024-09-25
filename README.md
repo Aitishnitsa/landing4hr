@@ -19,6 +19,7 @@ Link: https://aitishnitsa.github.io/landing4hr/
 - EmailJS: Allows sending email messages through the contact form without a backend.
 - Tailwind CSS: For responsive and utility-first styling.
 - Lenis: For smooth scrolling effects.
+- Prettier: For code formatting.
 
 ## Installation
 
